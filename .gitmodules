@@ -1,0 +1,8 @@
+[submodule "questionnaire-platform"]
+	path = questionnaire-platform
+	url = git@gitlab.fhnw.ch:SMESEC/questionnaire-platform.git
+	branch = dev
+[submodule "cysec-flatifier"]
+	path = cysec-flatifier
+	url = git@gitlab.fhnw.ch:SMESEC/cysec-flatifier.git
+    branch = master

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="lib-access-control" maxScore="1200" order="50" default="true" readableName="Access Control" readableClass="FAST RAMP-UP" version="1" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd">
+    <description>Security is a wide-spread topic that covers many aspects of a companies infrastructure. It involves onboarding and offboarding of access rights, password management, and access monitoring. This coach introduces you to best-practices on login management and profit from rich material to learn more about industry standards.</description>
+    <attachments>
+        <attachment id="icon">
+            <content filename="hexagon_access-control.png"></content>
+        </attachment>
+    </attachments>
+    <questions>
+        <question id="acces-q10" type="A" hidden="false">
+            <text>Do your users login to your systems with personal accounts?</text>
+            <attachments/>
+            <options correct="acces-q10o1">
+                <option id="acces-q10o1">
+                    <text>YES, FOR ALL SYSTEMS WE USE</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q10o2">
+                    <text>YES, FOR MOST SYSTEMS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q10o3">
+                    <text>YES, FOR SOME SYSTEMS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q10o4">
+                    <text>NO, OUR SYSTEMS ARE OPEN OR THE ACCOUNTS ARE SHARED</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="scores">
+                <mvalue key="acces-q10o1">
+                    <stringValue>50</stringValue>
+                </mvalue>
+                <mvalue key="acces-q10o2">
+                    <stringValue>50</stringValue>
+                </mvalue>
+            </metadata>
+            <metadata key="nextQid">
+                <mvalue key="default">
+                    <stringValue>acces-q20</stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Stop password sharing! &lt;/strong&gt;Even if your colleague asks for it. And never ask a person for their passwords/accounts. Passwords should not be shared with anyone to avoid internal security issues&lt;strong&gt;. &lt;/strong&gt;&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.isdecisions.com/blog/it-security/protection-from-password-sharing/&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Don't negate the benefit of authentication&lt;/strong&gt;&lt;strong&gt;! &lt;/strong&gt;You need the ability to audit and monitor a specific user&amp;rsquo;s actions. Statistics show that SMEs have problems regarding employees&amp;rsquo; password practices such as password sharing.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/458857/Password_guidance_-_simplifying_your_approach.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Apply these approaches instead of sharing passwords/accounts: &lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Use delegation of permission options&lt;/li&gt; &lt;li&gt;Use alternate access control mechanisms such as applying a hardware token&lt;/li&gt; &lt;li&gt;create a new account with an appropriate level of access&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.cmu.edu/iso/governance/guidelines/password-management.html&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Rq3Ph_vRiEM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="acces-q20" type="text" hidden="false">
+        <text>Please list the systems that are open or offer shared accounts.</text>
+        <attachments/>
+        <listeners/>
+        <metadata key="scores">
+            <mvalue key="acces-q20o1">
+                <stringValue>50</stringValue>
+            </mvalue>
+            <mvalue key="acces-q20o2">
+                <stringValue>50</stringValue>
+            </mvalue>
+        </metadata>
+        <metadata key="nextQid">
+            <mvalue key="default">
+                <stringValue>acces-q30</stringValue>
+            </mvalue>
+        </metadata>
+        <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;You are you!&lt;/strong&gt; The owner of the account is responsible for any action performed with the account, even if another person was using that.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://news.sunybroome.edu/focus/top-reasons-why-you-shouldnt-share-your-username-and-password/&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why avoid using a shared account!&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;To protect your private information&lt;/li&gt; &lt;li&gt;To make others secure by preventing unauthorised access to the systems.&lt;/li&gt; &lt;li&gt;To increase the accountability for the account&lt;/li&gt; &lt;li&gt;To decrease the password management risks (sharing password, former employees, &amp;hellip;)&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.sans.org/reading-room/whitepapers/basics/administration-shared-accounts-1271&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p style=&quot;text-align: left;&quot;&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/pJpmCXtLZ8I&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="acces-q30" type="A" hidden="false">
+            <text>Do your users use a different password for each of their accounts?</text>
+            <attachments/>
+            <options correct="acces-q30o1">
+                <option id="acces-q30o1">
+                    <text>YES, ALL OUR USERS USE DIFFERENT PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q30o2">
+                    <text>NO, SOME USERS REUSE SOME PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q30o3">
+                    <text>NO, WE DO NOT CONTROL PASSWORD USE</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q30o4">
+                    <text>WE USE AUTHORIZATION MECHANISMS OTHER THAN PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="scores">
+                <mvalue key="acces-q30o1">
+                    <stringValue>50</stringValue>
+                </mvalue>
+                <mvalue key="acces-q30o2">
+                    <stringValue>50</stringValue>
+                </mvalue>
+            </metadata>
+            <metadata key="nextQid">
+                <mvalue key="default">
+                    <stringValue>acces-q40</stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;End dangerous practices! &lt;/strong&gt;Studies indicate that reusing the same password for different services is a common dangerous strategy.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.pandasecurity.com/mediacenter/security/password-reuse/&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why not password reuse! &lt;/strong&gt;If a reused password is stolen it can be applied for unauthorized access to multiple systems.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.researchgate.net/publication/251232396_Improving_Password_Cybersecurity_Through_Inexpensive_and_Minimally_Invasive_Means_Detecting_and_Deterring_Password_Reuse_Through_Keystroke-Dynamics_Monitoring_and_Just-in-Time_Fear_Appeals&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;How can I deal with password reuse problem!&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;strong&gt;Enable enhanced security. &lt;/strong&gt;Then you can receive a request for additional information if you login into a site from a new location or computer.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Identify and change.&lt;/strong&gt; Where else you may have applied this password.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Delete those accounts you no longer require.&lt;/strong&gt;&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Apply single sign-on (SSO) technology&lt;/strong&gt;. The ability to authenticate once and never have to repeat the process for the duration of the session and password synchronization. It can mitigate the problem by removing the need to create new login credentials. You can only memorize a password and access to multiple accounts.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Apply biometrics as a viable solution&lt;/strong&gt;&lt;strong&gt;. &lt;/strong&gt;Biometric systems such as a fingerprint can be applied to manage password fatigue. It is easy to use and it can be combined with a PIN.&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://securityintelligence.com/a-proposed-solution-to-the-password-reuse-problem/&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/zPpFjX71-w8&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="acces-q40" type="A" hidden="false">
+            <text>Do your users use any other authentication method such as fingerprint or 2-factor to access your sensitive systems?</text>
+            <attachments/>
+            <options correct="acces-q40o1">
+                <option id="acces-q40o1">
+                    <text>YES, FOR ALL SYSTEMS WE USE</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q40o2">
+                    <text>YES, FOR MOST SYSTEMS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q40o3">
+                    <text>YES, FOR SOME SYSTEMS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q40o4">
+                    <text>NO, WE ONLY USE PASSWORD AUTHENTICATION</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="scores">
+                <mvalue key="acces-q40o1">
+                    <stringValue>50</stringValue>
+                </mvalue>
+                <mvalue key="acces-q40o2">
+                    <stringValue>50</stringValue>
+                </mvalue>
+            </metadata>
+            <metadata key="nextQid">
+                <mvalue key="default">
+                    <stringValue>acces-q50</stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Makes it harder to get into your account! &lt;/strong&gt;Passwords are one way of authentication while there are other forms of verifying users&amp;rsquo; identity such as fingerprints, 2/multiple-factor authentication (2FA), applying hardware or software tokens, or smart cards which you can add extra security layer.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://auth0.com/blog/why-every-business-needs-two-factor-authentication-security/&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why 2FA! &lt;/strong&gt;&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;Even strong passwords cannot protect you against data breaches or key logger attacks. Key logging programs can track all your keystrokes including your account credentials.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://authanvil.com/blog/3-types-of-password-security-attacks-and-how-to-avoid-them&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Activate dual-factor authentication for your significant accounts such as emails.&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;How to enable 2FA! &lt;/strong&gt;Some websites and services offer 2FA sometimes with different names. You need to enable it. Second factors can usually be received by SMS or in an authentication app (unique one-time access code).&lt;/p&gt; &lt;p&gt;Authentication can be in the form of: a PIN you know, a phone you have, a biometric such as a fingerprint.&lt;/p&gt; &lt;p&gt;Google Authenticator is one of the popular and easy to use apps for 2FA.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.cnet.com/how-to/how-and-why-to-use-two-factor-authentication/&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/EXbjJUD2sH0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="acces-q50" type="A" hidden="false">
+            <text>In the software systems you develop, do you force the users to use personal accounts?</text>
+            <attachments/>
+            <options correct="acces-q50o1">
+                <option id="acces-q50o1">
+                    <text>YES, OUR SYSTEMS FORCE ALL USERS TO USE PERSONAL ACCOUNTS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q50o2">
+                    <text>NO, SOME SYSTEMS DO NOT REQUIRE PERSONAL ACCOUNTS FOR SOME FEATURES</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q50o3">
+                    <text>NO, MOST SYSTEMS DO NOT REQUIRE PERSONAL ACCOUNTS FOR SOME FEATURES</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q50o4">
+                    <text>NO, OUR SYSTEMS DO NOT REQUIRE PERSONAL ACCOUNTS</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="scores">
+                <mvalue key="acces-q50o1">
+                    <stringValue>50</stringValue>
+                </mvalue>
+                <mvalue key="acces-q50o2">
+                    <stringValue>50</stringValue>
+                </mvalue>
+            </metadata>
+            <metadata key="nextQid">
+                <mvalue key="default">
+                    <stringValue>acces-q60</stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Address poor cyber hygiene! &lt;/strong&gt;Each user should have a unique account in a system. It is important to prevent those users who do not have permission to access some resources.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/SSB27U_6.4.0/com.ibm.zvm.v640.hcpa6/hcpa6361.htm&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why having personal accounts is essential!&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Creating an audit trail is difficult for shared accounts and accountability becomes a problem.&lt;/li&gt; &lt;li&gt;Shared accounts have problems in applying password policies. They have poor static passwords and vulnerable regarding password guessing attacks.&lt;/li&gt; &lt;li&gt;Shared accounts make a possibility of unauthorised access, for instance by former employees&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.sans.org/reading-room/whitepapers/basics/administration-shared-accounts-1271&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Educate and enforce users to prevent using shared/group accounts!&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Common bad habits among SMEs&amp;rsquo; employees: &lt;/strong&gt;sharing work email passwords with colleagues or assistants&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://cdn2.hubspot.net/hubfs/1747499/Content%20Downloads/Switchfast_SMB_Cybersecurity_Report.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt;
+                </text>
+                <attachments>
+                    <attachment id="acces-q50p1" mime="image/jpeg"><content filename="acces-q50p1.jpg" xml:lang="de"></content>
+                    </attachment>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="acces-q60" type="A" hidden="false">
+            <text>Do you force users to use strong passwords?</text>
+            <attachments/>
+            <options correct="acces-q60o1">
+                <option id="acces-q60o1">
+                    <text>YES, WE FORCE ALL USERS TO USE STRONG PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q60o2">
+                    <text>MOST USERS USE STRONG PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q60o3">
+                    <text>SOME USERS MAY USE STRONG PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q60o4">
+                    <text>NO, WE DID NOT ASK USERS TO USE STRONG PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="scores">
+                <mvalue key="acces-q60o1">
+                    <stringValue>50</stringValue>
+                </mvalue>
+                <mvalue key="acces-q60o2">
+                    <stringValue>50</stringValue>
+                </mvalue>
+            </metadata>
+            <metadata key="nextQid">
+                <mvalue key="default">
+                    <stringValue>acces-q70</stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Avoid predictable passwords! &lt;/strong&gt;Strong password (considering minimum requirements) is fundamental to protect against &lt;strong&gt;Dictionary Attacks or Password Guessing. &lt;/strong&gt;Many people tend to select a single word or short password and it is predictable in a short period.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://authanvil.com/blog/3-types-of-password-security-attacks-and-how-to-avoid-them&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Turn on Password Protection! &lt;/strong&gt;63% of small business cyber breaches occurred because of weak or stolen passwords.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.asbfeo.gov.au/sites/default/files/documents/ASBFEO-cyber-security-research-report.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Meet certain criteria when you manage a password!&lt;/strong&gt; Password strength is not the same as the password length. A password should be meaningful (so memorable) to you but difficult (cryptic) to guess for the others (or specialized software).&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Strong passwords: Have at least 8 characters, Contain both upper and lower case, Have at least one numerical character, Have at least one special character&amp;nbsp;&lt;/li&gt; &lt;li&gt;Do not write down passwords on sticky notes&lt;/li&gt; &lt;li&gt;Create a cryptic password.&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&lt;strong&gt;How to solve the memory problem?&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;strong&gt;Apply Passphrase instead of Password: &lt;/strong&gt;First, make an easy to remember phrase, then select the first character of each word, then use upper/lower case and finally, you can exchange special characters by numbers.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Apply Password Managers: &lt;/strong&gt;You can have a master password to save long, complex passwords&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/SSKTMJ_8.5.3/com.ibm.help.domino.admin85.doc/H_PASSWORD_QUALITY_SCALE_UNDERSTANDING_AND_SETTING_DEFAULTS_STEPS.html&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;https://password.kaspersky.com/&quot; target=&quot;_blank&quot;&gt;Check if your Password is strong enough!&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;https://www.checktool.ch/&quot; target=&quot;_blank&quot;&gt;Check if your account was compromised (Swiss)!&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/VYzguTdOmmU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="acces-q70" type="A" hidden="false">
+            <text>In the software systems you develop, do you force users to use strong passwords?</text>
+            <attachments/>
+            <options correct="acces-q70o1">
+                <option id="acces-q70o1">
+                    <text>YES, OUR SYSTEMS FORCE ALL USERS TO USE STRONG PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q70o2">
+                    <text>NO, SOME SYSTEMS DO NOT REQUIRE STRONG PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q70o3">
+                    <text>NO, MOST SYSTEMS DO NOT REQUIRE STRONG PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q70o4">
+                    <text>NO, ALL OUR SYSTEMS DO NOT REQUIRE STRONG PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="scores">
+                <mvalue key="acces-q70o1">
+                    <stringValue>50</stringValue>
+                </mvalue>
+                <mvalue key="acces-q70o2">
+                    <stringValue>50</stringValue>
+                </mvalue>
+            </metadata>
+            <metadata key="nextQid">
+                <mvalue key="default">
+                    <stringValue>acces-q80</stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Patch Major Vulnerabilities! &lt;/strong&gt;This is possible that users select weak passwords due to lack of effort and motivation or misunderstanding of threats or problem to memorize strong passwords.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://core.ac.uk/download/pdf/21749080.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Users need help! &lt;/strong&gt;81% of hacking-related breaches leveraged either stolen and/or weak passwords.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://enterprise.verizon.com/resources/reports/2017_dbir.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why helping users is vital to have strong passwords! &lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Make password requirements visible upfront, allow users to unmask the password, and show a strength meter to users.&lt;/li&gt; &lt;li&gt;In your software make sure that users who forget their passwords can easily reset it.&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;https://code.tutsplus.com/tutorials/build-a-simple-password-strength-checker--net-7565&quot;&gt;Build a Simple Password Strength Checker&lt;/a&gt;&lt;/li&gt; &lt;li&gt;Set a default value for all Password Quality Scale fields (IBM)&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Password Quality Scale&lt;/strong&gt;&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/SSKTMJ_8.5.3/com.ibm.help.domino.admin85.doc/H_PASSWORD_QUALITY_SCALE_UNDERSTANDING_AND_SETTING_DEFAULTS_STEPS.html&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+                </text>
+                <attachments>
+                    <attachment id="acces-q70p1" mime="image/jpeg"><content filename="acces-q70p1.jpg" xml:lang="de"></content>
+                    </attachment>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="acces-q80" type="A" hidden="false">
+            <text>When do you force your users to change their passwords?</text>
+            <attachments/>
+            <options correct="acces-q80o1">
+                <option id="acces-q80o1">
+                    <text>WE FORCE A CHANGE ONCE EVERY MONTH</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q80o2">
+                    <text>WE FORCE A CHANGE ONCE EVERY THIRD MONTH</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="scores">
+                <mvalue key="acces-q80o1">
+                    <stringValue>50</stringValue>
+                </mvalue>
+                <mvalue key="acces-q80o2">
+                    <stringValue>50</stringValue>
+                </mvalue>
+            </metadata>
+            <metadata key="nextQid">
+                <mvalue key="default">
+                    <stringValue>acces-q90</stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Users must change their passwords!&lt;/strong&gt; Once or twice a year for the significant accounts and those do not have 2-factor authentication. Also, If they have easy-to-guess passwords or if there is an indication or suspicion of compromise.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.psafe.com/en/blog/often-need-change-passwords&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why not use regular password changing for all accounts!&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Regular password changing (every 30, 60 or 90 days) can harms rather than improve security. Users tend to select new passwords with similar patterns that only have minor variations of the old one. So, no real advantage as stolen passwords are generally exploited immediately. Hackers cite &amp;ldquo;remembering and changing passwords&amp;rdquo; as a top source of cyber fatigue.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/458857/Password_guidance_-_simplifying_your_approach.pdf&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;The most frequently attempted login names and passwords for attackers against IoT devices&lt;/strong&gt;&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.symantec.com/content/dam/symantec/docs/reports/istr-23-2018-en.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt;
+                </text>
+                <attachments>
+                    <attachment id="acces-q80p1" mime="image/jpeg"><content filename="acces-q80p1.jpg" xml:lang="de"></content>
+                    </attachment>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="acces-q90" type="A" hidden="false">
+            <text>Are the passwords sent encrypted between client and the server?</text>
+            <attachments/>
+            <options correct="acces-q90o1">
+                <option id="acces-q90o1">
+                    <text>YES, PASSWORDS ARE ALWAYS ENCRYPTED</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q90o2">
+                    <text>MOST PASSWORDS ARE ENCRYPTED</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q90o3">
+                    <text>SOME PASSWORDS ARE ENCRYPTED</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q90o4">
+                    <text>NO, PASSWORDS ARE NOT ENCRYPTED</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="scores">
+                <mvalue key="acces-q90o1">
+                    <stringValue>50</stringValue>
+                </mvalue>
+                <mvalue key="acces-q90o2">
+                    <stringValue>50</stringValue>
+                </mvalue>
+            </metadata>
+            <metadata key="nextQid">
+                <mvalue key="default">
+                    <stringValue>acces-q100</stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Keep Hackers at bay! &lt;/strong&gt;For protecting your data against unauthorised users, it should be encrypted when transmitted across a network.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://security.berkeley.edu/data-encryption-transit-guideline&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;How to encrypt passwords! &lt;/strong&gt;Passwords can be encrypted through one-way format (prevents clear passwords from even administrators) or two-way format (decrypting passwords when returning to an authorized client).&lt;/p&gt; &lt;ul&gt; &lt;li&gt;One-way formats such as: Salted SHA-1, MD5&lt;/li&gt; &lt;li&gt;Two-way formats such as: AES&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_71/rzahy/rzahypwdencrypt.htm&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p style=&quot;text-align: left;&quot;&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/8ZtInClXe1Q&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt; &lt;p style=&quot;text-align: left;&quot;&gt;&amp;nbsp;&lt;/p&gt; &lt;p style=&quot;text-align: left;&quot;&gt;&lt;strong&gt;Multi-factor authentication and encryption are biggest hacker obstacles&lt;/strong&gt;&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://thycotic.com/wp-content/uploads/2013/03/BlackHa_Hacker_Survey_Report_2017.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt;
+                </text>
+                <attachments>
+                    <attachment id="acces-q90p1" mime="image/jpeg"><content filename="acces-q90p1.jpg" xml:lang="de"></content>
+                    </attachment>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="acces-q100" type="A" hidden="false">
+            <text>Do the software systems you develop limit the number of unsuccessful attempts to login?</text>
+            <attachments/>
+            <options correct="acces-q100o1">
+                <option id="acces-q100o1">
+                    <text>YES, THEY LIMIT THE ATTEMPTS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q100o2">
+                    <text>SOME SYSTEMS LIMIT THE ATTEMPTS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q100o3">
+                    <text>NO, THEY DO NOT LIMIT THE ATTEMPTS</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="scores">
+                <mvalue key="acces-q100o1">
+                    <stringValue>50</stringValue>
+                </mvalue>
+                <mvalue key="acces-q100o2">
+                    <stringValue>50</stringValue>
+                </mvalue>
+            </metadata>
+            <metadata key="nextQid">
+                <mvalue key="default">
+                    <stringValue>acces-q110</stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Block Brute Force Attacks!&lt;/strong&gt; It is a common threat web developers should consider. Hackers may apply scripts to attempt a brute-force attack.&amp;nbsp; They try a lot of combinations of usernames and passwords systematically to find the right one.&lt;/p&gt; &lt;p&gt;&lt;strong&gt;How to avoid Brute Force Attacks! &lt;/strong&gt;Some of the common approaches are:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Locking down accounts after a defined number of failed login attempts. However, it can cause DoS (denial of service) by locking&amp;nbsp;multiple accounts.&lt;/li&gt; &lt;li&gt;Making random progressive pauses when checking a password after a few incorrect login attempts. However, it can bother legitimate users.&lt;/li&gt; &lt;li&gt;returning an &quot;HTTP 401 error&quot; code with a password failure&lt;/li&gt; &lt;li&gt;After some failed login attempts, you can ask the user not only for the username and password but also to answer a secret question.&lt;/li&gt; &lt;li&gt;Combination of several approaches.&lt;/li&gt; &lt;li&gt;Forcing users to apply strong passwords&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Providing the possibility of 2-factor authentication&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.owasp.org/index.php/Blocking_Brute_Force_Attacks&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/nkQAfQ5pwtk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="acces-q110" type="A" hidden="false">
+            <text>Do you implement the principles of least privilege in your access control process?</text>
+            <attachments/>
+            <options correct="acces-q110o1">
+                <option id="acces-q110o1">
+                    <text>YES,  WE IMPLEMENT ALL THE PRINCIPLES</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q110o2">
+                    <text>WE IMPLEMENT MOST OF THE PRINCIPLES</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q110o3">
+                    <text>WE IMPLEMENT A FEW OF THE PRINCIPLES</text>
+                    <attachments></attachments>
+                </option>
+                <option id="acces-q110o4">
+                    <text>NO, WE DO NOT IMPLEMENT THE PRINCIPLES</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Reduce the effect of successful attacks! &lt;/strong&gt;Each user, process, and program should be assigned to the minimum level of users rights (only sufficient access). For instance, if an account needs to pull records from a database must not have admin rights.&lt;/p&gt; &lt;p&gt;&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;http://www.cybersecurity.my/properties_v3/images/guidelines/03%20SMEs.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why Principles Of Least Privilege!&lt;/strong&gt; It can improve the cybersecurity level in your company by reducing the risk of unauthorized access to critical systems or important data.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Improving the security level&lt;/li&gt; &lt;li&gt;Decreasing attack surface&lt;/li&gt; &lt;li&gt;Limiting malware propagation&lt;/li&gt; &lt;li&gt;Improving audit readiness&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://digitalguardian.com/blog/what-principle-least-privilege-polp-best-practice-information-security-and-compliance&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Principles Of Least Privilege for SMEs! &lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Few employees require extensive administrator rights&lt;/li&gt; &lt;li&gt;Only grant as many rights to an employee as are necessary to do their work.&lt;/li&gt; &lt;li&gt;Disable the rights to install any software&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a title=&quot;Information security checklist for SMEs - Melde- und Analysestelle Informationssicherung MELANI&quot; href=&quot;https://www.melani.admin.ch/dam/melani/en/dokumente/2018/04/180525_MerkBlatt-Info-Sicherheit-KMU-en.pdf.download.pdf/180525_MerkBlatt-Info-Sicherheit-KMU-en.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p style=&quot;text-align: left;&quot;&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/bY4qZH3Mpn8&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+    </questions>
+    <blocks>
+        <listeners>
+            <listener event="onResponseChange" libraries="eu.smesec.library.DemoLibrary"
+                      call="eu.smesec.library.DemoLibrary.onRespnseChange"/>
+        </listeners>
+        <block title="Access Control and Audit, Initial Level" qid-list="q10 q20 q30 q40 q50 q60 q70 q80 q90 q100 q110" position="1" id="b1">
+            <listeners/>
+            <instruction>
+                <text>Test</text>
+            </instruction>
+        </block>
+    </blocks>
+
+    <library id="eu.smesec.library.access_control.AccessLib"></library>
+</questionnaire>

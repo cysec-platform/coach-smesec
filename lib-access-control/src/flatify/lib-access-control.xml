@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="lib-access-control" maxScore="1200" order="50" parent="lib-company" readableName="Access Control" readableClass="FAST RAMP-UP" version="1" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd">
+    <description>Security is a wide-spread topic that covers many aspects of a companies infrastructure. It involves onboarding and offboarding of access rights, password management, and access monitoring. This coach introduces you to best-practices on login management and profit from rich material to learn more about industry standards.</description>
+    <attachments>
+        <attachment id="icon">
+            <content filename="hexagon_access-control.png"></content>
+        </attachment>
+    </attachments>
+    <questions>
+        <question id="access-q10" type="A" hidden="false">
+            <text>Do you have an IT security baseline?</text>
+            <attachments/>
+            <options correct="access-q10o1">
+                <option id="access-q10o1">
+                    <text>Yes, we do</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q10o2">
+                    <text>No, we don't</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q10o3">
+                    <text>We don't know what that is</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="access-q20" type="A" hidden="false">
+        <text>Do you provision users automatically?</text>
+        <attachments/>
+            <options>
+                <option id="access-q20o1">
+                    <text>Yes, we have full automation</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q20o2">
+                    <text>Yes, we automate some aspects</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q20o3">
+                    <text>No, we do the entire user creation manually</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+        <listeners/>
+        <instruction>
+            <text>
+            </text>
+        <attachments>
+        </attachments>
+
+        </instruction>
+        <metadata key="_cysec.logic">
+            <mvalue key="default">
+                <stringValue>
+                    TRUE : scoreSetup : {
+                        addScore("knowhowMax", 1);
+                        addScore("uuMax", 1);
+                    };
+                    isSelected("access-q20o1") : q20Answered : {
+                        setHidden("access-q25", FALSE);
+                        addScore("uu", 1);
+                        addScore("knowhow", 1);
+                    };
+                    TRUE : q20Answered : {
+                        setHidden("access-q25", TRUE);
+                    };
+                </stringValue>
+            </mvalue>
+        </metadata>
+        </question>
+        <question id="access-q25" type="yesno" hidden="true">
+            <text>Do you provision access during user creation?</text>
+            <attachments/>
+            <options>
+                <option id="access-q25o1">
+                    <text>Yes, we apply permission during user creation</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q25o2">
+                    <text>No, this is done seperately</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="access-q30" type="A" hidden="false">
+            <text>Do you distribute access privileges based on roles or groups?</text>
+            <attachments/>
+            <options>
+                <option id="access-q30o1">
+                    <text>Yes, all logins, file access and physical restrictions are based on roles</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q30o2">
+                    <text>Yes, all logins and file access are based on roles</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q30o2">
+                    <text>No, all access is given individually</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : scoreSetup : {
+                            addScore("knowhowMax", 1);
+                            addScore("strengthMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("access-q20o1") : q20Answered : {
+                            setHidden("access-q25", FALSE);
+                            addScore("knowhow", 1);
+                            addScore("strength", 1);
+                            addScore("uu", 1);
+
+                        };
+                        TRUE : q20Answered : {
+                            setHidden("access-q25", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+
+        <question id="access-q40" type="yesno" hidden="false">
+            <text>Do you apply the same logical controls for all systems?</text>
+            <attachments/>
+            <options>
+                <option id="access-q40o1">
+                    <text>Yes, all systems are equally sealed off</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q40o2">
+                    <text>No, each system is secured to its appropriate required degree of security</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+
+                        isSelected("access-q20o1") : q20Answered : {
+                        setHidden("access-q25", FALSE);
+                        };
+                        TRUE : q20Answered : {
+                        setHidden("access-q25", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+
+        <!--<question id="access-q30" type="A" hidden="false">-->
+            <!--<text>Do your users use a different password for each of their accounts?</text>-->
+            <!--<attachments/>-->
+            <!--<options correct="access-q30o1">-->
+                <!--<option id="access-q30o1">-->
+                    <!--<text>YES, ALL OUR USERS USE DIFFERENT PASSWORDS</text>-->
+                    <!--<attachments></attachments>-->
+                <!--</option>-->
+                <!--<option id="access-q30o2">-->
+                    <!--<text>NO, SOME USERS REUSE SOME PASSWORDS</text>-->
+                    <!--<attachments></attachments>-->
+                <!--</option>-->
+                <!--<option id="access-q30o3">-->
+                    <!--<text>NO, WE DO NOT CONTROL PASSWORD USE</text>-->
+                    <!--<attachments></attachments>-->
+                <!--</option>-->
+                <!--<option id="access-q30o4">-->
+                    <!--<text>WE USE AUTHORIZATION MECHANISMS OTHER THAN PASSWORDS</text>-->
+                    <!--<attachments></attachments>-->
+                <!--</option>-->
+            <!--</options>-->
+            <!--<listeners/>-->
+            <!--<instruction>-->
+                <!--<text>-->
+                    <!--&lt;p&gt;&lt;strong&gt;End dangerous practices! &lt;/strong&gt;Studies indicate that reusing the same password for different services is a common dangerous strategy.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.pandasecurity.com/mediacenter/security/password-reuse/&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why not password reuse! &lt;/strong&gt;If a reused password is stolen it can be applied for unauthorized access to multiple systems.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.researchgate.net/publication/251232396_Improving_Password_Cybersecurity_Through_Inexpensive_and_Minimally_Invasive_Means_Detecting_and_Deterring_Password_Reuse_Through_Keystroke-Dynamics_Monitoring_and_Just-in-Time_Fear_Appeals&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;How can I deal with password reuse problem!&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;strong&gt;Enable enhanced security. &lt;/strong&gt;Then you can receive a request for additional information if you login into a site from a new location or computer.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Identify and change.&lt;/strong&gt; Where else you may have applied this password.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Delete those accounts you no longer require.&lt;/strong&gt;&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Apply single sign-on (SSO) technology&lt;/strong&gt;. The ability to authenticate once and never have to repeat the process for the duration of the session and password synchronization. It can mitigate the problem by removing the need to create new login credentials. You can only memorize a password and access to multiple accounts.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Apply biometrics as a viable solution&lt;/strong&gt;&lt;strong&gt;. &lt;/strong&gt;Biometric systems such as a fingerprint can be applied to manage password fatigue. It is easy to use and it can be combined with a PIN.&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://securityintelligence.com/a-proposed-solution-to-the-password-reuse-problem/&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/zPpFjX71-w8&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;-->
+                <!--</text>-->
+                <!--<attachments>-->
+                <!--</attachments>-->
+            <!--</instruction>-->
+        <!--</question>-->
+        <question id="access-q50" type="Astar" hidden="false">
+            <text>Which of the following authentication methods do you use on sensitive systems?</text>
+            <attachments/>
+            <options correct="access-q50o1">
+                <option id="access-q50o1">
+                    <text>2 Factor authentication</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q50o2">
+                    <text>Biometric devices</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q50o3">
+                    <text>Physical keys</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q50o4">
+                    <text>Digital keys</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q50o5">
+                    <text>PIN entry pads</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Makes it harder to get into your account! &lt;/strong&gt;Passwords are one way of authentication while there are other forms of verifying users&amp;rsquo; identity such as fingerprints, 2/multiple-factor authentication (2FA), applying hardware or software tokens, or smart cards which you can add extra security layer.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://auth0.com/blog/why-every-business-needs-two-factor-authentication-security/&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why 2FA! &lt;/strong&gt;&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;Even strong passwords cannot protect you against data breaches or key logger attacks. Key logging programs can track all your keystrokes including your account credentials.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://authanvil.com/blog/3-types-of-password-security-attacks-and-how-to-avoid-them&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Activate dual-factor authentication for your significant accounts such as emails.&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;How to enable 2FA! &lt;/strong&gt;Some websites and services offer 2FA sometimes with different names. You need to enable it. Second factors can usually be received by SMS or in an authentication app (unique one-time access code).&lt;/p&gt; &lt;p&gt;Authentication can be in the form of: a PIN you know, a phone you have, a biometric such as a fingerprint.&lt;/p&gt; &lt;p&gt;Google Authenticator is one of the popular and easy to use apps for 2FA.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.cnet.com/how-to/how-and-why-to-use-two-factor-authentication/&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/EXbjJUD2sH0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : scoreSetup : {
+                            addScore("knowhowMax", 1);
+                            addScore("strengthMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isAnswered("access-q50") : q50Answered : {
+                            addScore("knowhow", 1);
+                            addScore("strength", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+        <question id="access-q60" type="A" hidden="false">
+            <text>Do you implement the principle of least privilege?</text>
+            <attachments/>
+            <options correct="access-q60o1">
+                <option id="access-q60o1">
+                    <text>Yes, we strictly adhere to the principle in every system</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q60o2">
+                    <text>Yes, however there are some exceptions</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q60o3">
+                    <text>No, more than half of our systems provide too much access for the job required</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+
+                </text>
+                <attachments>
+                    <attachment id="access-q50p1" mime="image/jpeg"><content filename="access-q50p1.jpg" xml:lang="de"></content>
+                    </attachment>
+                </attachments>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : scoreSetup : {
+                            addScore("knowhowMax", 1);
+                            addScore("strengthMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isAnswered("access-q60") : q60Answered : {
+                            addScore("knowhow", 1);
+                            addScore("strength", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+        <question id="access-q70" type="A" hidden="false">
+            <text>Do you enforce a password policy?</text>
+            <attachments/>
+            <options correct="access-q70o1">
+                <option id="access-q70o1">
+                    <text>Yes, we set a policy for passwords and make sure it is enforced</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q70o2">
+                    <text>We do have a password policy but don't enforce it</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q70o3">
+                    <text>No, our employees may freely choose their password</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        or(isSelected("access-q70o1"), isSelected("access-q70o2")) : q70Answered : {
+                            setHidden("access-q72", FALSE);
+                            setHidden("access-q74", FALSE);
+                        };
+                        TRUE : q70Answered : {
+                            setHidden("access-q72", TRUE);
+                            setHidden("access-q74", TRUE);
+                            setHidden("access-q76", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+        <question id="access-q72" type="A" hidden="true">
+            <text>Do you force users to use strong passwords?</text>
+            <attachments/>
+            <options correct="access-q72o1">
+                <option id="access-q72o1">
+                    <text>Yes, we force all users to use strong passwords</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q72o2">
+                    <text>Yes, our password policy requires decent password strength</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q72o3">
+                    <text>No, our users may use passwords considered to be insecure</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q72o4">
+                    <text>NO, WE DID NOT ASK USERS TO USE STRONG PASSWORDS</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Avoid predictable passwords! &lt;/strong&gt;Strong password (considering minimum requirements) is fundamental to protect against &lt;strong&gt;Dictionary Attacks or Password Guessing. &lt;/strong&gt;Many people tend to select a single word or short password and it is predictable in a short period.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://authanvil.com/blog/3-types-of-password-security-attacks-and-how-to-avoid-them&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Turn on Password Protection! &lt;/strong&gt;63% of small business cyber breaches occurred because of weak or stolen passwords.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.asbfeo.gov.au/sites/default/files/documents/ASBFEO-cyber-security-research-report.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Meet certain criteria when you manage a password!&lt;/strong&gt; Password strength is not the same as the password length. A password should be meaningful (so memorable) to you but difficult (cryptic) to guess for the others (or specialized software).&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Strong passwords: Have at least 8 characters, Contain both upper and lower case, Have at least one numerical character, Have at least one special character&amp;nbsp;&lt;/li&gt; &lt;li&gt;Do not write down passwords on sticky notes&lt;/li&gt; &lt;li&gt;Create a cryptic password.&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&lt;strong&gt;How to solve the memory problem?&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;strong&gt;Apply Passphrase instead of Password: &lt;/strong&gt;First, make an easy to remember phrase, then select the first character of each word, then use upper/lower case and finally, you can exchange special characters by numbers.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Apply Password Managers: &lt;/strong&gt;You can have a master password to save long, complex passwords&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/SSKTMJ_8.5.3/com.ibm.help.domino.admin85.doc/H_PASSWORD_QUALITY_SCALE_UNDERSTANDING_AND_SETTING_DEFAULTS_STEPS.html&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;https://password.kaspersky.com/&quot; target=&quot;_blank&quot;&gt;Check if your Password is strong enough!&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;https://www.checktool.ch/&quot; target=&quot;_blank&quot;&gt;Check if your account was compromised (Swiss)!&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/VYzguTdOmmU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : scoreSetup : {
+                            addScore("strengthMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        or(isSelected("access-q72o1"), isSelected("access-q72o2")) : q72Answered : {
+                            addScore("strength", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+        <question id="access-q74" type="A" hidden="true">
+            <text>How often do you force password rotation?</text>
+            <attachments/>
+            <options correct="access-q74o1">
+                <option id="access-q74o1">
+                    <text>We foce change every 3 months</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q74o2">
+                    <text>We force change per year</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q74o4">
+                    <text>We don't foce password rotation</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Avoid predictable passwords! &lt;/strong&gt;Strong password (considering minimum requirements) is fundamental to protect against &lt;strong&gt;Dictionary Attacks or Password Guessing. &lt;/strong&gt;Many people tend to select a single word or short password and it is predictable in a short period.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://authanvil.com/blog/3-types-of-password-security-attacks-and-how-to-avoid-them&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Turn on Password Protection! &lt;/strong&gt;63% of small business cyber breaches occurred because of weak or stolen passwords.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.asbfeo.gov.au/sites/default/files/documents/ASBFEO-cyber-security-research-report.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Meet certain criteria when you manage a password!&lt;/strong&gt; Password strength is not the same as the password length. A password should be meaningful (so memorable) to you but difficult (cryptic) to guess for the others (or specialized software).&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Strong passwords: Have at least 8 characters, Contain both upper and lower case, Have at least one numerical character, Have at least one special character&amp;nbsp;&lt;/li&gt; &lt;li&gt;Do not write down passwords on sticky notes&lt;/li&gt; &lt;li&gt;Create a cryptic password.&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&lt;strong&gt;How to solve the memory problem?&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;strong&gt;Apply Passphrase instead of Password: &lt;/strong&gt;First, make an easy to remember phrase, then select the first character of each word, then use upper/lower case and finally, you can exchange special characters by numbers.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Apply Password Managers: &lt;/strong&gt;You can have a master password to save long, complex passwords&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/SSKTMJ_8.5.3/com.ibm.help.domino.admin85.doc/H_PASSWORD_QUALITY_SCALE_UNDERSTANDING_AND_SETTING_DEFAULTS_STEPS.html&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;https://password.kaspersky.com/&quot; target=&quot;_blank&quot;&gt;Check if your Password is strong enough!&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;https://www.checktool.ch/&quot; target=&quot;_blank&quot;&gt;Check if your account was compromised (Swiss)!&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/VYzguTdOmmU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : scoreSetup : {
+                            addScore("strengthMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        or(isSelected("access-q74o1"), isSelected("access-q72o4")) : q74Answered : {
+                            addScore("strength", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+        <question id="access-q76" type="A" hidden="true">
+            <text>Do you keep track of recently used passwords?</text>
+            <attachments/>
+            <options correct="access-q76o1">
+                <option id="access-q76o1">
+                    <text>Yes we don't allow the recently used 10 passwords</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q76o2">
+                    <text>Yes, we only monitor the previous password though</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q76o4">
+                    <text>No, users could use their last password</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Avoid predictable passwords! &lt;/strong&gt;Strong password (considering minimum requirements) is fundamental to protect against &lt;strong&gt;Dictionary Attacks or Password Guessing. &lt;/strong&gt;Many people tend to select a single word or short password and it is predictable in a short period.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://authanvil.com/blog/3-types-of-password-security-attacks-and-how-to-avoid-them&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Turn on Password Protection! &lt;/strong&gt;63% of small business cyber breaches occurred because of weak or stolen passwords.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.asbfeo.gov.au/sites/default/files/documents/ASBFEO-cyber-security-research-report.pdf&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Meet certain criteria when you manage a password!&lt;/strong&gt; Password strength is not the same as the password length. A password should be meaningful (so memorable) to you but difficult (cryptic) to guess for the others (or specialized software).&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Strong passwords: Have at least 8 characters, Contain both upper and lower case, Have at least one numerical character, Have at least one special character&amp;nbsp;&lt;/li&gt; &lt;li&gt;Do not write down passwords on sticky notes&lt;/li&gt; &lt;li&gt;Create a cryptic password.&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&lt;strong&gt;How to solve the memory problem?&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;strong&gt;Apply Passphrase instead of Password: &lt;/strong&gt;First, make an easy to remember phrase, then select the first character of each word, then use upper/lower case and finally, you can exchange special characters by numbers.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Apply Password Managers: &lt;/strong&gt;You can have a master password to save long, complex passwords&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/en/SSKTMJ_8.5.3/com.ibm.help.domino.admin85.doc/H_PASSWORD_QUALITY_SCALE_UNDERSTANDING_AND_SETTING_DEFAULTS_STEPS.html&quot; target=&quot;_blank&quot;&gt;More info ...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;https://password.kaspersky.com/&quot; target=&quot;_blank&quot;&gt;Check if your Password is strong enough!&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;https://www.checktool.ch/&quot; target=&quot;_blank&quot;&gt;Check if your account was compromised (Swiss)!&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/VYzguTdOmmU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : scoreSetup : {
+                            addScore("strengthMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        or(isSelected("access-q76o1"), isSelected("access-q76o2")) : q76Answered : {
+                            addScore("strength", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+        <question id="access-q80" type="A" hidden="false">
+            <text>Do you have a user and service account repository?</text>
+            <attachments/>
+            <options correct="access-q80o1">
+                <option id="access-q80o1">
+                    <text>Yes, we use a database that saves all user accounts</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q80o2">
+                    <text>No, we don't have a repository</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("access-q80o1") : q80Answered : {
+                            setHidden("access-q82", FALSE);
+                        };
+                        TRUE : q80Answered : {
+                            setHidden("access-q82", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+        <question id="access-q82" type="A" hidden="true">
+            <text>Do you track local accounts on relevant system?</text>
+            <attachments/>
+            <options correct="access-q82o1">
+                <option id="access-q82o1">
+                    <text>Yes, we keep track of local accounts</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q82o2">
+                    <text>No, we don't have an overview of local accounts</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+            </instruction>
+        </question>
+        <question id="access-q90" type="A" hidden="false">
+            <text>Do you clear access permission during offboarding of employees?</text>
+            <attachments/>
+            <options correct="access-q90o1">
+                <option id="access-q90o1">
+                    <text>Yes, we immediately clear during offboarding</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q90o2">
+                    <text>Yes, we clear access after a 1 to 3 months after employee leave</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q90o3">
+                    <text>No, we don't strictly revoke access</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : scoreSetup : {
+                            addScore("strengthMax", 1);
+                            addScore("knowhowMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        or(isSelected("access-q90o1"), isSelected("access-q90o2")) : q90Answered : {
+                            addScore("strength", 1);
+                            addScore("knowhow", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        or(isSelected("access-q90o1"), isSelected("access-q90o2")) : q90Answered : {
+                            setHidden("access-q92", FALSE);
+                        };
+                        TRUE : q90Answered : {
+                            setHidden("access-q92", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+        <question id="access-q92" type="A" hidden="true">
+            <text>Do you rotate SSH keys after an employee leaves?</text>
+            <attachments/>
+            <options correct="access-q92o1">
+                <option id="access-q92o1">
+                    <text>Yes, we revoke SSH keys of users</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q92o2">
+                    <text>Yes, we clear SSH keys after the employee leaves</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q92o3">
+                    <text>No, we don't revoke SSH keys</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="access-q100" type="A" hidden="false">
+            <text>Do you review access permissions of users?</text>
+            <attachments/>
+            <options correct="access-q100o1">
+                <option id="access-q100o1">
+                    <text>YES, we review permissions regularly</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q100o2">
+                    <text>Yes, we review permissions occassionaly</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q100o3">
+                    <text>No, we never check permissions</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="access-q110" type="A" hidden="false">
+            <text>Do you log access attempts to relevant systems?</text>
+            <attachments/>
+            <options correct="access-q110o1">
+                <option id="access-q110o1">
+                    <text>Yes, we log access attempts</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q110o2">
+                    <text>No, we don't log access attempts</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <attachments>
+                </attachments>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : scoreSetup : {
+                            addScore("strengthMax", 1);
+                            addScore("knowhowMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("access-q110o1") : q110Answered : {
+                            addScore("strength", 1);
+                            addScore("knowhow", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+        <question id="access-q120" type="yesno" hidden="false">
+            <text>Do you monitor the network for unusual traffic?</text>
+            <attachments/>
+            <options correct="access-q120o1">
+                <option id="access-q120o1">
+                    <text>Yes, we monitor the network</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q120o2">
+                    <text>No, we don't monitor the network</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <attachments>
+                </attachments>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : scoreSetup : {
+                            addScore("strengthMax", 1);
+                            addScore("knowhowMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("access-q120o1") : q120Answered : {
+                            addScore("strength", 1);
+                            addScore("knowhow", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+        <question id="access-q130" type="yesno" hidden="false">
+            <text>Do you have a remote access policy?</text>
+            <attachments/>
+            <options correct="access-q130o1">
+                <option id="access-q130o1">
+                    <text>Yes, we do have a remote access policy</text>
+                    <attachments></attachments>
+                </option>
+                <option id="access-q130o2">
+                    <text>No, we don't have a remote access policy</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <attachments>
+                </attachments>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : scoreSetup : {
+                            addScore("strengthMax", 1);
+                            addScore("knowhowMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("access-q130o1") : q130Answered : {
+                            addScore("strength", 1);
+                            addScore("knowhow", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+    </questions>
+    <blocks>
+        <listeners>
+            <listener event="onResponseChange" libraries="eu.smesec.library.DemoLibrary"
+                      call="eu.smesec.library.DemoLibrary.onRespnseChange"/>
+        </listeners>
+        <block title="Access Control and Audit, Initial Level" qid-list="access-q10 q20 q30 q40 q50 q60 q70 q80 q90 q100 q110" position="1" id="b1">
+            <listeners/>
+            <instruction>
+                <text>Test</text>
+            </instruction>
+        </block>
+    </blocks>
+
+    <library id="eu.smesec.library.access_control.AccessLib"></library>
+    <metadata key="_cysec.logic">
+        <mvalue key="preQuestion">
+            <stringValue>
+                TRUE : preQuestion : {
+                addScore("uu", 0);
+                };
+            </stringValue>
+        </mvalue>
+        <mvalue key="postQuestion">
+            <stringValue>
+
+                and(isSelected("access-q25o1"), isSelected("access-q90o1")) : AccessGuardBadge : awardBadge("AccessGuard", "Bronze");
+                TRUE : AccessGuardBadge : revokeBadge("AccessGuard");
+
+                isAnswered("access-q50") : SecondLineOfDefenceBadge : awardBadge("SecondLineOfDefence", "Bronze");
+                TRUE : SecondLineOfDefenceBadge : revokeBadge("SecondLineOfDefence");
+
+                and(isSelected("access-q120o1"), isSelected("access-q110o1")) : BigBrotherBadge : awardBadge("BigBrother", "Bronze");
+                TRUE : BigBrotherBadge : revokeBadge("BigBrother");
+
+                // User creation
+                isSelected("access-q20o3") : AutomatedUserCreation : {
+                    addRecommendation("AutomatedUserCreation", 1, "", "", "Automated user creation can save you money and time", "", "", "app/coach.jsp#lib-access-control,q20");
+                };
+                isSelected("access-q20o1") : AutomatedUserCreation : revokeRecommendation("AutomatedUserCreation");
+
+                // Two factor auth
+                not(isAnswered("access-q50")) : TwoFactorAuthentication : {
+                    addRecommendation("TwoFactorAuthentication", 1, "", "", "Consider using another authentication method. This gives you a safety net if one security mechanism fails", "", "", "app/coach.jsp#lib-access-control,q50");
+                };
+                isAnswered("access-q50") : TwoFactorAuthentication : revokeRecommendation("TwoFactorAuthentication");
+
+                // strong passwords
+                or(isSelected("access-q74o2"), isSelected("access-q74o3")) : StrongPasswords : {
+                    addRecommendation("StrongPasswords", 1, "", "", "Strong password secure your user account", "", "", "app/coach.jsp#lib-access-control,q74");
+                };
+                isSelected("access-q74o1") : StrongPasswords : revokeRecommendation("StrongPasswords");
+
+                // least access principle
+                or(isSelected("access-q60o2"), isSelected("access-q60o3")) : LeastAccessPrinciple : {
+                    addRecommendation("LeastAccessPrinciple", 1, "", "", "Providing more access than necessary can cause conflict of interest", "", "", "app/coach.jsp#lib-access-control,q60");
+                };
+                isSelected("access-q60o1") : LeastAccessPrinciple : revokeRecommendation("LeastAccessPrinciple");
+
+                // disgruntled Employee
+                or(isSelected("access-q90o2"), isSelected("access-q90o3")) : DisgruntledEmployee : {
+                    addRecommendation("DisgruntledEmployee", 1, "", "", "Ex-employees holding grudges against their former employer (aka disgruntled empoyees) can wreak havoc on the company, especially IT personal.", "", "", "app/coach.jsp#lib-access-control,q90");
+                };
+                isSelected("access-q90o1") : DisgruntledEmployee : revokeRecommendation("DisgruntledEmployee");
+
+                // permission accumulation
+                isSelected("access-q100o3") : PermissionAccumulation : {
+                    addRecommendation("PermissionAccumulation", 1, "", "", "Permissions tend to accumulate of the years and with department changes.", "", "", "app/coach.jsp#lib-access-control,q100");
+                };
+                or(isSelected("access-q100o1"), isSelected("access-q100o2")) : PermissionAccumulation : revokeRecommendation("PermissionAccumulation");
+
+                // permission accumulation
+                isSelected("access-q110o2") : LogAccessAttempts : {
+                    addRecommendation("LogAccessAttempts", 1, "", "", "People are more likely to test their limits, if no one is watching", "", "", "app/coach.jsp#lib-access-control,q110");
+                };
+                isSelected("access-q110o1") : LogAccessAttempts  : revokeRecommendation("LogAccessAttempts");
+
+            </stringValue>
+        </mvalue>
+        <mvalue key="onBegin">
+            <stringValue>
+                TRUE : onBegin : {
+                    addBadge( "SecondLineOfDefence", 1, "", "", "Not assigned yet", "lib-access-control,access-q50" );
+                    addBadgeClass( "SecondLineOfDefence", "Bronze", 1, "", "", "More than 1 authentication method", "lib-access-control,access-q50");
+
+                    addBadge( "AccessGuard", 1, "", "", "Not assigned yet", "lib-access-control,access-q90" );
+                    addBadgeClass( "AccessGuard", "Bronze", 1, "", "", "Automated assignment and revoke of permission", "lib-access-control,access-q90");
+
+                    addBadge( "BigBrother", 1, "", "", "Not assigned yet", "lib-access-control,access-q110" );
+                    addBadgeClass( "BigBrother", "Bronze", 1, "", "", "Watching closely on your network", "lib-access-control,access-q110");
+                };
+            </stringValue>
+        </mvalue>
+    </metadata>
+</questionnaire>

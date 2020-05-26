@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 59 72" style="enable-background:new 0 0 59 72;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#C8FA96;}
+	.st1{filter:url(#Adobe_OpacityMaskFilter);}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st3{mask:url(#mask-2_1_);fill:#B9F281;}
+	.st4{fill:none;stroke:#FFFFFF;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;}
+	.st5{fill:none;stroke:#505050;stroke-width:2;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#505050;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<title>badge01</title>
+<desc>Created with Sketch.</desc>
+<g id="Rectangle-Copy-2">
+	<g id="Mask">
+		<path class="st0" d="M58.5,12.5v29.7c0,14-27.6,29.7-29.2,29.7C27.6,72,0,56.2,0,42.3V12.5c7.4,0,26.4-8.4,29.3-12.5
+			C32.1,4.1,50.8,12.5,58.5,12.5z"/>
+	</g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="29.3" y="0" width="29.9" height="72">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="29.3" y="0" width="29.9" height="72" id="mask-2_1_">
+		<g class="st1">
+			<path id="path-1_1_" class="st2" d="M58.5,12.5v29.7c0,14-27.6,29.7-29.2,29.7C27.6,72,0,56.2,0,42.3V12.5
+				c7.4,0,26.4-8.4,29.3-12.5C32.1,4.1,50.8,12.5,58.5,12.5z"/>
+		</g>
+	</mask>
+	<rect id="Rectangle" x="29.3" class="st3" width="29.9" height="72"/>
+</g>
+<path id="Page-1-Copy-16" class="st4" d="M58.5,12.5v29.7c0,14-27.6,29.7-29.2,29.7C27.6,72,0,56.2,0,42.3V12.5
+	c7.4,0,26.4-8.4,29.3-12.5C32.1,4.1,50.8,12.5,58.5,12.5z"/>
+<g>
+	<line class="st5" x1="29.4" y1="11.1" x2="29.4" y2="20.1"/>
+	<line class="st5" x1="36.1" y1="22.1" x2="31.6" y2="30"/>
+	<line class="st5" x1="39.4" y1="29.4" x2="37.2" y2="30.6"/>
+	<line class="st5" x1="50.2" y1="23.1" x2="41.4" y2="28.2"/>
+	<line class="st5" x1="44.4" y1="35.1" x2="35.4" y2="35.1"/>
+	<line class="st5" x1="50.2" y1="47.1" x2="37.2" y2="39.6"/>
+	<line class="st5" x1="36.1" y1="47.4" x2="31.6" y2="39.5"/>
+	<line class="st5" x1="29.4" y1="59.1" x2="29.4" y2="51.1"/>
+	<line class="st5" x1="20.5" y1="50.1" x2="25.1" y2="42.2"/>
+	<line class="st5" x1="8.7" y1="47.1" x2="21.6" y2="39.6"/>
+	<line class="st5" x1="5.4" y1="35.1" x2="15.4" y2="35.1"/>
+	<line class="st5" x1="16.2" y1="27.5" x2="24.1" y2="32"/>
+	<line class="st5" x1="17.4" y1="14.3" x2="24.9" y2="27.3"/>
+	<line class="st5" x1="29.4" y1="22.1" x2="29.4" y2="24.1"/>
+	<line class="st5" x1="17.4" y1="35.1" x2="19.4" y2="35.1"/>
+	<line class="st5" x1="29.4" y1="47.1" x2="29.4" y2="49.1"/>
+	<line class="st5" x1="29.4" y1="43.1" x2="29.4" y2="45.1"/>
+	<line class="st5" x1="27.4" y1="38.8" x2="26.4" y2="40.8"/>
+	<line class="st6" x1="8.4" y1="22.1" x2="6.4" y2="24.1"/>
+	<line class="st6" x1="13.4" y1="17.1" x2="11.4" y2="19.1"/>
+	<line class="st6" x1="11.4" y1="22.1" x2="13.4" y2="24.1"/>
+	<line class="st6" x1="6.4" y1="17.1" x2="8.4" y2="19.1"/>
+	<line class="st6" x1="40.4" y1="50.1" x2="40.4" y2="52.1"/>
+	<line class="st6" x1="40.4" y1="54.1" x2="40.4" y2="56.1"/>
+	<line class="st6" x1="39.4" y1="53.1" x2="37.4" y2="53.1"/>
+	<line class="st6" x1="43.4" y1="53.1" x2="41.4" y2="53.1"/>
+	<line class="st6" x1="41.4" y1="13.1" x2="41.4" y2="16.1"/>
+	<line class="st6" x1="41.4" y1="20.1" x2="41.4" y2="23.1"/>
+	<line class="st6" x1="39.4" y1="18.1" x2="36.4" y2="18.1"/>
+	<line class="st6" x1="46.4" y1="18.1" x2="43.4" y2="18.1"/>
+</g>
+</svg>

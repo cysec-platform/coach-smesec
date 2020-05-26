@@ -1,0 +1,824 @@
+<?xml version='1.0'?>
+<questionnaire id="lib-subcoach-backup" version="4" readableName="Backup coach" readableClass="FAST RAMP-UP" order="50" parent="lib-company" xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd">
+    <!--
+    * |-q10 File service
+    * |-q20 Infrastructure
+    *   |-q30 Incidents
+    *   |-q40 Backup
+    *     |-q50 Verify -> q02 Recommendation
+    *     |-q60 Drill -> qo2 Recommendation
+    *     |-q70 Copies -> qo3 Recommendation
+    *   |-q80 Ransomware
+    *     |-q90
+    *     |-q100
+    *   |-q110
+    *     |-q120
+    *       |-q130
+    *     |-q140
+    *   |-q150
+    * |-q180
+    ** Badge 1: first question
+    ** Badge 2: Q1 and Q3 mismatch
+    ** Badge 3: Backup Bronze
+    -->
+
+    <description>Think of backup with the saying: "Make hay while the sun shines." For most small and medium-sized companies IT infrastructure is central to daily business. Every minute the servers don't work is lost money and therefore paramount to have a quick incident response and restore processes. Dive into this coach to see how you're doing and what you could improve.</description>
+    <attachments>
+        <attachment id="icon">
+            <content filename="hexagon_default.png"></content>
+        </attachment>
+    </attachments>
+
+    <questions>
+        <question id="backup-q10" type="A" hidden="false">
+            <text>Which backup use case applies the most to your service incidents?</text>
+            <attachments/>
+            <options correct="backup-q10o1">
+                <option id="backup-q10o1">
+                    <text>Individual folder/file retrieval</text>
+                    <attachments/>
+                    <!-- You should implement continuous file based backup-->
+                </option>
+                <option id="backup-q10o2">
+                    <text>Complete system recovery</text>
+                    <attachments/>
+                    <!-- You should implement continuous image backup-->
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                            addScore("strengthMax", 2);
+                            addScore("uuMax", 1);
+                        };
+                        isAnswered("backup-q10") : q10 : {
+                            addScore("knowhow",1);
+                            addScore("strength",2);
+                            addScore("uu",1);
+                        };
+                        not(isAnswered("backup-q10")) : q10not : {
+                            addScore("knowhow",-1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;div class="coach-what"&gt;What!
+                    &lt;p>There are different kinds of backups available. Depending on the use case, you require different types of backups. Some image-based backups can do file based recovery if they are aware of the structure of the file system, but this is something you have to think of when buying the software.&lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="coach-why"&gt;Why?
+                    &lt;p>If your backup is made for quick system recovery, then a file-based recovery is typically hard to achieve. On the opposite, it is hard to recover failed hardware from a file-based backup. Choosing the right backup is, therefore, vital. It decides how fast your business can recover from file or system loss.&lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="coach-how"&gt;How?
+                    &lt;p&gt;There are many Backup solutions available on the market. Some well-known Backups are &lt;a href=" https://www.borgbackup.org/"&gt;BorgBackup&lt;/a&gt; (if you have no Windows servers) or &lt;a href=" https://www.urbackup.org/"&gt;UrBackup&lt;/a&gt;. Of course, there are many commercial backup/restore solutions available. Commercial solutions typically score by being flashier, supporting more features and file systems. Furthermore, they may provide better integration of enterprise features. However, Backup software may be quite pricy when securing a bunch of machines. Always make sure to know the full costs of a backup solution before choosing it. Changing a backup is a very tempting task.
+
+                    If in doubt always go for an image-based backup solution, as it covers more structures on your disk than a file-based backup.&lt;/p>
+                    &lt;/div>
+
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q20" type="A" hidden="false">
+            <text>Do you have a backup procedure running on a regular base for all your servers in place?</text>
+            <attachments/>
+            <options correct="backup-q20o1">
+                <option id="backup-q20o1">
+                    <text>Yes, for all servers</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                    <!-- Ask about schedule -->
+                </option>
+                <option id="backup-q20o2">
+                    <text>No, just for some servers</text>
+                    <attachments/>
+                </option>
+                <option id="backup-q20o3">
+                    <text>No, we do not have a backup procedure in place</text>
+                    <attachments/>
+                    <!-- Recommend scheduling backups -->
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        or(isSelected("backup-q20o1"), isSelected("backup-q20o3")) : q20Next : {
+                            setHidden("backup-q30", FALSE);
+                            setHidden("backup-q80", FALSE);
+                            setHidden("backup-q110", FALSE);
+                            setHidden("backup-q150", FALSE);
+                        }
+                        TRUE : backup-q20Next : {
+                            setHidden("backup-q80", TRUE);
+                            setHidden("backup-q110", TRUE);
+                            setHidden("backup-q150", TRUE);
+                            setNext("backup-q160");
+                        }
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;div class="coach-what"&gt;What!
+                    &lt;p>Backups have to be run on a regular schedule to be effective. Most servers are backed up daily or at least weekly. Having no or just an ad-hoc backup is no viable solution.&lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="coach-why"&gt;Why?
+                    &lt;p>You invest a lot of work and money into the data of your servers. The costs of a single data loss are typically higher than the license cost to back up that server.&lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="coach-how"&gt;How?
+                    &lt;p&gt;Most of the backups can run on a scheduled base. Usually, it is a good idea to run it daily during the night. At this time a busy network is not so much an issue as during daytime.&lt;/p>
+                    &lt;/div>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q30" type="A">
+            <text>Which type do you run?</text>
+            <attachments/>
+            <options correct="backup-q30o1">
+                <option id="backup-q30o1">
+                    <text>File-based backups</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                    <!-- Ask about schedule -->
+                </option>
+                <option id="backup-q30o2">
+                    <text>Image-based</text>
+                    <attachments/>
+                    <!-- Recommend scheduling backups -->
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("backup-q30o2") : q30Next : setHidden("backup-q35", FALSE);
+                        TRUE : backup-q30Next : {
+                            setHidden("backup-q40", FALSE);
+                            setHidden("backup-q35", TRUE);
+                        }
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q35" type="yesno" hidden="true">
+            <text>Can your image-based backup do file recovery on all filesystem types you have within your company?</text>
+            <attachments/>
+            <options correct="backup-q35o1">
+                <option id="backup-q35o1">
+                    <text>Yes</text>
+                    <attachments/>
+                </option>
+                <option id="backup-q35o2">
+                    <text>No</text>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q40" type="yesno" hidden="true">
+            <text>Do you verify the created backups?</text>
+            <attachments/>
+            <options correct="backup-q40o1">
+                <option id="backup-q40o1">
+                    <text>Yes, verify if backups are created successfully</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                </option>
+                <option id="backup-q40o2">
+                    <text>No, we don't check backup files</text>
+                    <attachments/>
+                    <!-- Recommend verifying integrity of backups -->
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("backup-q40o2") : q40Next : {
+                            setHidden("80", FALSE);
+                            setNext("backup-q80");
+                        };
+                        TRUE : q40Next : setHidden("backup-q80", TRUE);
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q50" type="yesno">
+            <text>Do you run regular checks?</text>
+            <attachments/>
+            <options correct="backup-q50o1">
+                <option id="backup-q50o1">
+                    <text>Yes</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                </option>
+                <option id="backup-q50o2">
+                    <text>No</text>
+                    <attachments/>
+                    <!-- Recommend verifying integrity of backups -->
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("backup-q50o2") : q50Next : {
+                            setHidden("backup-q80", FALSE);
+                            setNext("80");
+                        };
+                        TRUE : q50Next : {
+                            setHidden("backup-q60", FALSE);
+                            setHidden("backup-q80", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q60" type="A" hidden="true">
+            <text>Please select the appropriate interval of your checks</text>
+            <attachments/>
+            <options correct="backup-q60o1">
+                <option id="backup-q60o1">
+                    <text>Every backup</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                </option>
+                <option id="backup-q60o2">
+                    <text>Every month</text>
+                    <attachments/>
+                </option>
+                <option id="backup-q60o3">
+                    <text>Every week</text>
+                    <attachments/>
+                </option>
+                <option id="backup-q60o4">
+                    <text>Every year</text>
+                    <attachments/>
+                </option>
+                <option id="backup-q60o5">
+                    <text>Once</text>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : q60Next : {
+                            setHidden("backup-q80", FALSE);
+                            setNext("backup-q80");
+                        };
+                        TRUE : q60Next : setHidden("backup-q80", TRUE);
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q70" type="yesno" hidden="true">
+            <text>Have you verified if your backup includes all you need?</text>
+            <attachments/>
+            <options correct="backup-q70o1">
+                <option id="backup-q70o1">
+                    <text>Yes</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                </option>
+                <option id="backup-q70o2">
+                    <text>No</text>
+                    <attachments/>
+                    <!-- Recommend verifying integrity of backups -->
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : q70Next : {
+                            setHidden("backup-q80", FALSE);
+                            setNext("backup-q80");
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q80" type="yesno" hidden="true">
+            <text>Do have for spare parts for critical systems?</text>
+            <attachments/>
+            <options correct="backup-q80o1">
+                <option id="backup-q80o1">
+                    <text>Yes</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                </option>
+                <option id="backup-q80o2">
+                    <text>No</text>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("backup-q80o1" : q80Next : {
+                            setHidden("backup-q90", FALSE);
+                        }
+                        TRUE : q80Next : {
+                            setHidden("backup-q110", FALSE);
+                            setHidden("backup-q90", TRUE);
+                            setNext("backup-q110");
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q90" type="yesno" hidden="true">
+            <text>Do have a supplier for those spare parts?</text>
+            <attachments/>
+            <options correct="backup-q90o1">
+                <option id="backup-q90o1">
+                    <text>Yes</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                </option>
+                <option id="backup-q90o2">
+                    <text>No</text>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("backup-q90o1" : q90Next : {
+                            setHidden("backup-q100", FALSE);
+                        }
+                        TRUE : backup-q90Next : {
+                            setHidden("backup-q100", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q100" type="yesno" hidden="true">
+            <text>Do continuously check if those parts are on stock?</text>
+            <attachments/>
+            <options correct="backup-q100o1">
+                <option id="backup-q100o1">
+                    <text>Yes</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                </option>
+                <option id="backup-q100o2">
+                    <text>No</text>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q110" type="yesno" hidden="true">
+            <text>Do you keep multiple copies of backup files?</text>
+            <attachments/>
+            <options correct="backup-q110o1">
+                <option id="backup-q110o1">
+                    <text>yes</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                </option>
+                <option id="backup-q110o2">
+                    <text>no</text>
+                    <attachments/>
+                    <!-- Recommend: You should follow the 3-2-1 pattern -->
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("backup-q110o1") : q110Next : {
+                            setHidden("backup-q120", FALSE);
+                        };
+                        TRUE : q110Next : {
+                            setHidden("backup-q120", TRUE);
+                            setNext("backup-q150");
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q120" type="yesno" hidden="true">
+            <text>Do you keep backups in different locations?</text>
+            <attachments/>
+            <options correct="backup-q120o1">
+                <option id="backup-q120o1">
+                    <text>yes</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                </option>
+                <option id="backup-q120o2">
+                    <text>no</text>
+                    <attachments/>
+                    <!-- Recommend: Store multiple backups -->
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("backup-q120o1") : q120Next : {
+                            setHidden("backup-q130", FALSE);
+                            setHidden("backup-q140", FALSE);
+                        };
+                        TRUE : q120Next : {
+                            setHidden("backup-q140", FALSE);
+                            setHidden("backup-q130", TRUE);
+                            setNext("backup-q140");
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q130" type="yesno" hidden="true">
+            <text>Do you store backups either in a fire-proof room or off-site?</text>
+            <attachments/>
+            <options correct="backup-q130o1">
+                <option id="backup-q130o1">
+                    <text>yes</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                </option>
+                <option id="backup-q130o2">
+                    <text>no</text>
+                    <attachments/>
+                    <!-- Recommend: Store multiple backups -->
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q140" type="yesno">
+            <text>Do you store backups in a way that Ransomware won't be able to manipulate?</text>
+            <attachments/>
+            <options correct="backup-q140o1">
+                <option id="backup-q140o1">
+                    <text>yes</text>
+                    <attachments/>
+                    <!-- + 50 points -->
+                </option>
+                <option id="backup-q140o2">
+                    <text>no</text>
+                    <attachments/>
+                    <!-- Recommend: You should safe backups decentralized -->
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q150" type="yesno">
+            <text>Do you perform annual recovery drills?</text>
+            <attachments/>
+            <options correct="backup-q150o1">
+                <option id="backup-q150o1">
+                    <text>Yes</text>
+                    <attachments/>
+                    <!-- +50 points -->
+                </option>
+                <option id="backup-q150o2">
+                    <text>No</text>
+                    <attachments/>
+                    <!-- Recommend recovery drills -->
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q160" type="yesno" hidden="false">
+            <text>Do you store or backup all your hardware and RAID configuration?</text>
+            <attachments/>
+            <options correct="backup-q160o1">
+                <option id="backup-q160o1">
+                    <text>Yes</text>
+                    <attachments/>
+                    <!-- +50 points -->
+                </option>
+                <option id="backup-q160o2">
+                    <text>No</text>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners/>
+
+            <instruction>
+                <text>
+
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q170" type="yesno" hidden="false">
+            <text>Do you have incident response staff at the ready?</text>
+            <attachments/>
+            <options correct="backup-q170o1">
+                <option id="backup-q170o1">
+                    <text>Yes</text>
+                    <attachments/>
+                    <!-- +50 points -->
+                </option>
+                <option id="backup-q170o2">
+                    <text>No</text>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q180" type="yesno" hidden="false">
+            <text>Do you operate a NAS/SAN or similar data storage?</text>
+            <attachments/>
+            <options correct="backup-q180o1">
+                <option id="backup-q180o1">
+                    <text>Yes</text>
+                    <attachments/>
+                    <!-- +50 points -->
+                </option>
+                <option id="backup-q180o2">
+                    <text>No</text>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("backup-q180o1") : q180Next : {
+                            setHidden("q190", FALSE);
+                            setNext("backup-q190");
+                        };
+                        TRUE : backup-q180Next : {
+                            setHidden("backup-q190", TRUE);
+                            setNext("q990");
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q190" type="yesno" hidden="true">
+            <text>Do you have an automatic or manual monitoring active?</text>
+            <attachments/>
+            <options correct="backup-q190o1">
+                <option id="backup-q190o1">
+                    <text>Yes</text>
+                    <attachments/>
+                    <!-- +50 points -->
+                </option>
+                <option id="backup-q190o2">
+                    <text>No</text>
+                    <attachments/>
+                    <!-- Recommend to install automation -->
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("backup-q190o1") : q190Next : {
+                            setHidden("q200", FALSE);
+                            setNext("backup-q200");
+                        };
+                        TRUE : backup-q190Next : {
+                            setHidden("backup-q200", TRUE);
+                            setNext("q990");
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>Whether this is a full-scale monitoring application with mounted screens or a basic email notification system doesn't matter. Important is that a mechanism is in place that informs about outages.
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="backup-q200" type="yesno" hidden="true">
+            <text>Do you have spare parts for the hardware?</text>
+            <attachments/>
+            <options correct="backup-q200o1">
+                <option id="backup-q200o1">
+                    <text>Yes</text>
+                    <attachments/>
+                    <!-- +50 points -->
+                </option>
+                <option id="backup-q200o2">
+                    <text>No</text>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    NAS and SAN setups require lots of disks, cables and specialized plugs. It's good practice to keep spare parts on the side to be able to quickly respond to component failure.
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="q990" type="yesno" hidden="false">
+            <text>Did you answer all questions accurately and to the best of your knowledge?</text>
+            <attachments/>
+            <options correct="q990o1">
+                <option id="q990o1">
+                    <text>Yes, we do dry runs of recovery scenarios</text>
+                    <attachments/>
+                </option>
+                <option id="q990o2">
+                    <text>No, we don't</text>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+    </questions>
+    <blocks>
+        <listeners>
+            <listener event="onResponseChange" libraries="eu.smesec.library.DemoLibrary"
+                      call="eu.smesec.library.DemoLibrary.onRespnseChange"/>
+        </listeners>
+        <block title="Backup Level Assessment" qid-list="backup-q10" position="1" id="b1">
+            <listeners/>
+            <instruction>
+                <text>Test</text>
+            </instruction>
+        </block>
+    </blocks>
+
+    <library id="eu.smesec.library.backup.FirstLibrary"></library>
+    <metadata key="_cysec.logic">
+        <mvalue key="preQuestion">
+            <stringValue>
+                TRUE : preQuestion : {
+                    addScore("uu", 0);
+                };
+            </stringValue>
+        </mvalue>
+        <mvalue key="postQuestion">
+            <stringValue>
+                TRUE : postQuestion : {
+                    addScore("uu", 0);
+                };
+                and(isSelected("backup-q40o1"), isSelected("backup-q140o1")) : BackupKing : awardBadge("BackupKing", "Bronze");
+                and(isAnswered("backup-q40"), isAnswered("backup-q140")) : BackupKing : revokeBadge("BackupKing");
+
+                isAnswered("backup-q10") : BeginnerBadge : awardBadge("BeginnerBadge", "Bronze");
+
+                isSelected("backup-q190o1") : AutomateMonitoring : {
+                    addRecommendation("TieUpLooseEnds", 1, "", "", "Tie up loose ends", "", "", "app/coach.jsp#lib-subcoach-backup,backup-q190");
+                };
+                isAnswered("backup-q190") : AutomateMonitoring : revokeRecommendation("TieUpLooseEnds");
+
+                isSelected("backup-q35o1") : ImageBackup : {
+                    addRecommendation("ImageBackup", 1, "", "", "Consider changing your backup to a system where images are backed up, but files may be restored.", "", "", "app/coach.jsp#lib-subcoach-backup,backup-q35");
+                };
+                isAnswered("backup-q35") : ImageBackup : revokeRecommendation("ImageBackup");
+
+                isSelected("backup-q30o1") : BackupType : {
+                    addRecommendation("BackupType", 1, "", "", "Install a backup procedure on all of your servers. Our records indicate that you should go for a file backup or an image backup which can extract files from all filesystem types you use", "", "", "app/coach.jsp#lib-subcoach-backup,q30");
+                };
+                isAnswered("backup-q30") : BackupType : revokeRecommendation("BackupType");
+
+                isSelected("backup-q20o1") : BackupProcedure : {
+                    addRecommendation("BackupProcedure", 1, "", "", "Setup a regular backup schedule", "", "", "app/coach.jsp#lib-subcoach-backup,q20");
+                };
+                // problem
+                isAnswered("backup-q20") : BackupProcedure : revokeRecommendation("BackupProcedure");
+            </stringValue>
+        </mvalue>
+        <mvalue key="onBegin">
+            <stringValue>
+                TRUE : onBegin : {
+                    addBadge( "BackupKing", 1, "assets/images/backupking.svg", "", "Not assigned yet", "lib-backup,backup-q20" );
+                    addBadgeClass( "BackupKing", "Bronze", 1, "assets/images/backupkingbronze.svg", "", "Backup verification and Periodic checks", "lib-backup,backup-q10");
+                    addBadge( "BeginnerBadge", 1, "assets/images/beginnerbadge.svg", "", "Not assigned yet", "lib-backup,backup-q20" );
+                    addBadgeClass( "BeginnerBadge", "Bronze", 1, "assets/images/beginnerbadgebronze.svg", "", "Get up and running, well done!", "lib-backup,backup-q10");
+                };
+            </stringValue>
+        </mvalue>
+    </metadata>
+</questionnaire>

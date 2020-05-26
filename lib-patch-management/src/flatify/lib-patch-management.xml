@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd"
+               id="lib-patch-management" parent="lib-company" readableName="Patch Management" readableClass="FAST RAMP-UP" version="1" order="30">
+    <description>Even though every software has its flaws and weaknesses, it doesn't mean there's nothing one can do about it. The old saying to never change a running system doesn't apply to updates and patches. It is essential to updates servers as well as desktops regularly to harden software against zero-day exploits. Also, many small subsequent changes are more straightforward to integrate than a few huge migrations.</description>
+    <attachments>
+        <attachment id="icon">
+            <content filename="hexagon_patch-management.png"></content>
+        </attachment>
+    </attachments>
+    <questions>
+        <question id="patch-q10" type="A" hidden="false">
+            <text>Have you enabled automated patching of the operating system on all machines?</text>
+            <attachments/>
+            <options correct="patch-q10o1">
+                <option id="patch-q10o1">
+                    <text>YES, FOR ALL MACHINES</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q10o2">
+                    <text>YES, FOR MOST MACHINES</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q10o3">
+                    <text>YES, FOR SOME MACHINES</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q10o4">
+                    <text>NO, AUTOMATED PATCHING HAS NOT BEEN ENABLED</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Patch easy-to-exploit operation systems&amp;rsquo; vulnerabilities! &lt;/strong&gt;Turn on automatic update for your operating systems to prevent hackers from exploiting known operating systems&amp;rsquo; vulnerabilities.&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why automated patching of the operating system is essential: &lt;/strong&gt;vulnerabilities appear over time, usually after the vendor has released the operating system to the market. Attackers can exploit these vulnerabilities. Patch management allows you to install vendor-supplied updates to correct deficiencies that exist in the operating system.&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Plan your updates!&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Windows operating system: the source of updates is Microsoft. Patch Tuesday (the first week of the month) is the time for the releasing patches.&lt;/li&gt; &lt;li&gt;Mac operating systems: the source of updates is Apple. Update frequency is sometimes random.&lt;/li&gt; &lt;li&gt;Linux operating systems: there are many Linux distribution. To schedule for the new patches, check the publisher and version of your operating systems.&lt;/li&gt; &lt;li&gt;Android: the source of updates is Google. Google's monthly Android security Bulletins provide fixes for vulnerabilities.&lt;/li&gt; &lt;li&gt;iOS: the source of updates is Apple. Update frequency is sometimes random.&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.automox.com/blog/cyber-hygiene-fundamentals-operating-system-patching&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt;
+                    &lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/HU3lejrbwC8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="patch-q20" type="A" hidden="false">
+            <text>Have you enabled automated patching for all services interfacing to the internet?</text>
+            <attachments/>
+            <options correct="patch-q20o1">
+                <option id="patch-q20o1">
+                    <text>YES, FOR ALL SERVICES</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q20o2">
+                    <text>NO, FOR SOME SERVICES</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q20o3">
+                    <text>YES, FOR SOME SERVICES</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q20o4">
+                    <text>NO, AUTOMATED PATCHING HAS NOT BEEN ENABLED</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                            isSelected("patch-q20o1") : scoring : {
+                            addScore("knowhow", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Apply patches to keep all services secure! &lt;/strong&gt;Your regular patching routines should cover not only all operating systems but also all services on your network.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.watchguard.com/docs/whitepaper/wg_top10-summary_wp.pdf&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why you should remediate security issues for all services: &lt;/strong&gt;The most effective approach is an all-embracing routine. By enabling automated patching, you will not need to check for the latest updates for all services constantly.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.symantec.com/content/dam/symantec/docs/reports/istr-23-2018-en.pdf&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;How to manage vulnerability issues for all services&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Enable automatic updating for all of your services that have this option.&lt;/li&gt; &lt;li&gt;If there is no more support and update for your services, upgrade them to the new versions.&lt;/li&gt; &lt;li&gt;For fixing security vulnerabilities, give primacy to internet services and off-the-shelf web applications which can be exploited automatically.&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.ncsc.gov.uk/guidance/vulnerability-management&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Some example of common services:&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;DNS (Domain Name Service)&lt;/li&gt; &lt;li&gt;DHCP (Dynamic Host configuration Protocol)&lt;/li&gt; &lt;li&gt;File sharing in Windows&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;#&quot;&gt;Set a reminder now to enable automated patching of all services/devices!&lt;/a&gt;&lt;/p&gt;
+                    &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/tnyDHqC8nDM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="patch-q30" type="A" hidden="false">
+        <text>Have you enabled automated patching for all devices interfacing to the internet?</text>
+        <attachments/>
+        <options correct="patch-q20o1">
+            <option id="patch-q30o1">
+                <text>YES, FOR ALL DEVICES</text>
+                <attachments></attachments>
+            </option>
+            <option id="patch-q30o2">
+                <text>NO, FOR SOME DEVICES</text>
+                <attachments></attachments>
+            </option>
+            <option id="patch-q30o3">
+                <text>YES, FOR SOME DEVICES</text>
+                <attachments></attachments>
+            </option>
+            <option id="patch-q30o4">
+                <text>NO, AUTOMATED PATCHING HAS NOT BEEN ENABLED</text>
+                <attachments></attachments>
+            </option>
+        </options>
+        <listeners/>
+        <instruction>
+            <text>
+                &lt;p&gt;&lt;strong&gt;Apply patches to keep all devices secure! &lt;/strong&gt;Secure device configuration is an important step which can fulfil good bug fixing practices in securing your network.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://one.comodo.com/blog/patch-management/ensure-network-properly-patched.php&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why you should remediate security issues for all devices&lt;/strong&gt;: Attackers have started looking beyond routers in your network. New targets are other connected devices. Also, by enabling automated patching, you will not need to check for the latest updates for all devices constantly.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.symantec.com/content/dam/symantec/docs/reports/istr-23-2018-en.pdf&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;How to manage vulnerability issues for all devices interfacing to the internet&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Do security configuration for all devices.&lt;/li&gt; &lt;li&gt;Monitor and determine those devices which need to be updated.&lt;/li&gt; &lt;li&gt;Apply tools which provide you with accurate device configuration information.&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://one.comodo.com/blog/patch-management/ensure-network-properly-patched.php&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Some example of common devices:&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Wireless Access Point&lt;/li&gt; &lt;li&gt;Network Hub&lt;/li&gt; &lt;li&gt;Routers&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;#&quot;&gt;Set a reminder now to enable automated patching of all services/devices!&lt;/a&gt;&lt;/p&gt;
+            </text>
+            <attachments>
+            </attachments>
+        </instruction>
+    </question>
+        <question id="patch-q40" type="A" hidden="false">
+            <text>Have you enabled automated patching for all applications that have access to the Internet?</text>
+            <attachments/>
+            <options correct="patch-q40o1">
+                <option id="patch-q40o1">
+                    <text>YES, FOR ALL SYSTEMS WE USE</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q40o2">
+                    <text>YES, FOR MOST SYSTEMS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q40o3">
+                    <text>YES, FOR SOME SYSTEMS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q40o4">
+                    <text>NO, WE ONLY USE PASSWORD AUTHENTICATION</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Maintain ongoing patch compliance for all applications! &lt;/strong&gt;Enable auto update for all applications to make sure all of them are updated with the latest patches. The regular security update is a routine for assets protection.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;http://www.cybersecurity.my/properties_v3/images/guidelines/03%20SMEs.pdf&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why you have to close the patch gap for all applications: &lt;/strong&gt;updating a single application or operating system won&amp;rsquo;t be effective if the other applications on the network have not been updated. Almost 80% of software vulnerabilities can be derived from non-Microsoft applications running on Windows.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.cyberdot.com/cyber-security/a-small-businesss-guide-to-handling-patch-management/&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why auto-patching is necessary!&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;It is crucial to identify and remove the vulnerabilities as soon as they are known. Some of the automated patch management advantages are:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Doing Patching 24/7&lt;/li&gt; &lt;li&gt;Reducing human error in patching&lt;/li&gt; &lt;li&gt;Reducing Patching work&lt;/li&gt; &lt;li&gt;Monitoring of an automated patch management system is short&lt;/li&gt; &lt;li&gt;Plug and play, adding new devices and deploying patches instantly&lt;/li&gt; &lt;li&gt;Meeting compliance goals&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://automoxprod.wpengine.com/blog/top-10-reasons-automated-patching&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Some example of common applications:&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Google Chrome&lt;/li&gt; &lt;li&gt;Adobe flash player&lt;/li&gt; &lt;/ul&gt;
+                </text>
+                <attachments>
+                    <attachment id="patch-q40p1" mime="image/jpeg"><content filename="patch-q40p1.jpg" xml:lang="de"></content>
+                    </attachment>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="patch-q50" type="A" hidden="false">
+            <text>Do you regularly update all software that requires manual patching?</text>
+            <attachments/>
+            <options correct="patch-q50o1">
+                <option id="patch-q50o1">
+                    <text>YES, WE REGULARLY UPDATE ALL SUCH SOFTWARE</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q50o2">
+                    <text>YES, WE REGULARLY UPDATE MOST SUCH SOFTWARE</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q50o3">
+                    <text>YES, WE REGULARLY UPDATE SOME SUCH SOFTWARE</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q50o4">
+                    <text>NO, WE DO NOT UPDATE APPLICATIONS WITHOUT AUTOMATED PATCHING OPTIONS</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Do not miss patch updates for custom applications! &lt;/strong&gt;Keep accurate scanning for new patches for those software which do not have automated patching options.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://searchenterprisedesktop.techtarget.com/tip/Manual-vs-automated-patch-tracking&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why tracking updates by hand is important! &lt;/strong&gt;There are software applications (for instance, for a specific use or third-party software) which do not have automated patching options. Since vulnerabilities for all components should be fixed, you need to do manual tracking for relevant patches.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.watchguard.com/docs/whitepaper/wg_top10-summary_wp.pdf&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Provide a checklist for manual updating! &lt;/strong&gt;Each patch needs a checklist with the following items:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Date the patch was issued&lt;/li&gt; &lt;li&gt;Revision number&lt;/li&gt; &lt;li&gt;Specific problems addressed by the patch&lt;/li&gt; &lt;li&gt;Which users and machines received the patch&lt;/li&gt; &lt;li&gt;Any known or noted side effects or conflicts with other products&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://searchenterprisedesktop.techtarget.com/tip/Manual-vs-automated-patch-tracking&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="patch-q60" type="A" hidden="false">
+            <text>Have you revoked the administrator rights needed to install/remove/cancel patches from your user's accounts?</text>
+            <attachments/>
+            <options correct="patch-q60o1">
+                <option id="patch-q60o1">
+                    <text>YES, FOR ALL USERS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q60o2">
+                    <text>YES, FOR MOST USERS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q60o3">
+                    <text>YES, FOR SOME USERS</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q60o4">
+                    <text>NO, WE HAVE NOT REVOKED THE ADMINISTRATOR RIGHTS</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Revoke admin rights for users!&lt;/strong&gt; Disabling users&amp;rsquo; administrator rights helps you to keep your SME more secure.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.computerworlduk.com/smb/10-ways-smes-can-boost-security-without-spending-money-3628618/&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why you need to revoke admin rights: &lt;/strong&gt;The users must not be able to modify their systems to install unauthorised patches or remove unwittingly specific patches or cancel automated patching. Controlling and restricting admin rights can mitigate vulnerabilities.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a title=&quot;https://lafibre.info/testdebit/windows10/201702_avecto_report_microsoft_vulnerabilities_2016.pdf&quot; href=&quot;https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/458857/Password_guidance_-_simplifying_your_approach.pdf&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Statistics tell us! &lt;/strong&gt;94% of critical Windows vulnerabilities addressed by removing admin rights (2016).&lt;/p&gt;
+                </text>
+                <attachments>
+                    <attachment id="patch-q60p1" mime="image/jpeg"><content filename="patch-q60p1.jpg" xml:lang="de"></content>
+                    </attachment>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="patch-q70" type="A" hidden="false">
+            <text>Have you prepared an inventory of what needs patching?</text>
+            <attachments/>
+            <options correct="patch-q70o1">
+                <option id="patch-q70o1">
+                    <text>YES, WE HAVE AN INVENTORY</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q70o2">
+                    <text>NO, WE DO NOT HAVE AN INVENTORY</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("patch-q70o1") : scoring : {
+                            addScore("knowhow", 1);
+                            addScore("uu", 1);
+                            setHidden("patch-q72", FALSE);
+                            setHidden("patch-q74", FALSE);
+                        };
+                        TRUE : scoring : {
+                            setHidden("patch-q72", TRUE);
+                            setHidden("patch-q74", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Take an inventory of all the components! &lt;/strong&gt;You need to have a detailed inventory of all hardware, operating systems and applications. This is the first step of a successful patch management strategy.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.sans.org/reading-room/whitepapers/sysadmin/meeting-challenges-automated-patch-management-1468&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why having an inventory is necessary! &lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;You need to know your assets to identify vulnerabilities and available patches.&lt;/li&gt; &lt;li&gt;You need a list of all those software products which require your permission to restart and install new patches.&lt;/li&gt; &lt;/ul&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.cyberdot.com/cyber-security/a-small-businesss-guide-to-handling-patch-management/&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Make an inventory with these items:&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Operating systems and versions&lt;/li&gt; &lt;li&gt;Applications and versions&lt;/li&gt; &lt;li&gt;Services and versions&lt;/li&gt; &lt;li&gt;Patch status&lt;/li&gt; &lt;li&gt;Hardware and devices&lt;/li&gt; &lt;li&gt;Owner of hardware&lt;/li&gt; &lt;li&gt;The contact information of the owners&lt;/li&gt; &lt;/ul&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="patch-q72" type="A" hidden="true">
+            <text>Do you review your inventory for patch management?</text>
+            <attachments/>
+            <options correct="patch-q72o1">
+                <option id="patch-q72o1">
+                    <text>YES, EVERY MONTH. THE REVIEW IS PLANNED FOR: ______________</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q72o2">
+                    <text>YES, THE NEXT REVIEW IS PLANNED FOR: ______________</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q72o3">
+                    <text>NO, WE HAVE NOT REVIEWED OUR INVENTORY</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Keep your inventory update!&lt;/strong&gt; Review your inventory and keep it up-to-date. This activity is part of the patch management cycle.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.gdatasoftware.com/fileadmin/web/en/documents/techpaper/TechPaper__0271_-_Patch_Management_Best_Practices.pdf&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why you need to review your inventory: &lt;/strong&gt;For each component in your inventory you need to know if there are any known vulnerabilities and if the relevant updates are available. New vulnerabilities are reported continuously, and many vendors release their patches on a monthly cycle.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.cyberdot.com/cyber-security/a-small-businesss-guide-to-handling-patch-management/&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;How you can find the latest available updates! &lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Check vendors websites directly for the released updates.&lt;/li&gt; &lt;li&gt;Apply e-mail notification services if the vendor website has this option.&lt;/li&gt; &lt;li&gt;Rely on a third party aggregator for information about updates.&lt;/li&gt; &lt;/ul&gt;
+                    &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/HkErRHF4A7A&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="patch-q74" type="yesno" hidden="true">
+            <text>Do you categorize devices according to atch priority?</text>
+            <attachments/>
+            <options correct="patch-q74o1">
+                <option id="patch-q74o1">
+                    <text>yes</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q74o2">
+                    <text>no</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="patch-q80" type="A" hidden="false">
+            <text>Have you configured your newly procured devices to be patched automatically?</text>
+            <attachments/>
+            <options correct="patch-q80o1">
+                <option id="patch-q80o1">
+                    <text>YES, ALL NEW DEVICES ARE CONFIGURED</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q80o2">
+                    <text>YES, MOST NEW DEVICES ARE CONFIGURED</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q80o3">
+                    <text>YES, SOME NEW DEVICES ARE CONFIGURED</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q80o4">
+                    <text>NO, NEW DEVICES HAVE NOT CONFIGURED FOR AUTOMATED PATCHING</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Settle vulnerability issues for all devices!&lt;/strong&gt; Maintain your new devices secure by configuring them to get the latest patches automatically. You need to know how the new devices handle patching.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.cyberdot.com/cyber-security/a-small-businesss-guide-to-handling-patch-management/&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why auto-patching for new devices is important! &lt;/strong&gt;Security vulnerabilities should be patched as soon as they are identified for every component including new devices.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.gdatasoftware.com/fileadmin/web/en/documents/techpaper/TechPaper__0271_-_Patch_Management_Best_Practices.pdf&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Patch management for new devices! &lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Enable automated patching for those devices that have this option.&lt;/li&gt; &lt;li&gt;If automated patching option is not available, select those devices that the process of&amp;nbsp;patching&amp;nbsp;is simple.&lt;/li&gt; &lt;/ul&gt;
+                </text>
+                <attachments>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="patch-q100" type="A" hidden="false">
+            <text>Do you use an automated patch management software?</text>
+            <attachments/>
+            <options correct="patch-q100o1">
+                <option id="patch-q100o1">
+                    <text>YES, WE USE AN AUTOMATED PATCH MANAGEMENT SOFTWARE</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q100o2">
+                    <text>NO, WE DO NOT USE ANY AUTOMATED PATCH MANAGEMENT SOFTWARE</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                            addScore("strengthMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("patch-q100o1") : scoring : {
+                            addScore("knowhow", 1);
+                            addScore("strength", 1);
+                            addScore("uu", 1);
+                            setHidden("patch-q102", FALSE);
+                        };
+                        TRUE : scoring : {
+                            setHidden("patch-q102", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                    &lt;p&gt;&lt;strong&gt;Patch up vulnerabilities with tools!&lt;/strong&gt; Apply patch management software to scan and detect the latest missing patches as soon as they are released.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.watchguard.com/docs/whitepaper/wg_top10-summary_wp.pdf&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Why applying automated patching software is useful!&lt;/strong&gt; Manual patching systems are costly, time-consuming and not realistic to keep your data secure. To do patch management for a mix of different components, for instance, operating systems at scale,&amp;nbsp; you need a tool in place to regularly detect vulnerabilities, gather the information of the latest patches and apply patches.&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://www.automox.com/blog/rise-automated-patch-management&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;strong&gt;SMESEC patch management tools:&lt;/strong&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt;&lt;u&gt;IBM Angel&lt;/u&gt; &lt;u&gt;Eyes&lt;/u&gt;&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt;&lt;u&gt;Bitdefender&lt;/u&gt;&lt;u&gt; Gravity Zone&lt;/u&gt;&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;
+                    &lt;p&gt;&lt;strong&gt;Statistics show:&lt;/strong&gt; automated patch management systems are considered as essential and important technologies by almost 50% of SMEs (2017).&lt;/p&gt; &lt;p style=&quot;text-align: right;&quot;&gt;&lt;a href=&quot;https://csrps.com/Media/Default/2017%20Reports/2017-Ponemon-State-of-Cybersecurity-in-Small-and-Medium-Sized-Businesses-SMB.pdf&quot; target=&quot;_blank&quot;&gt;More info...&lt;/a&gt;&lt;/p&gt;
+                </text>
+                <attachments>
+                    <attachment id="patch-q100p1" mime="image/jpeg"><content filename="patch-q100p1.jpg" xml:lang="de"></content>
+                    </attachment>
+                </attachments>
+            </instruction>
+        </question>
+        <question id="patch-q102" type="A" hidden="true">
+            <text>Which of these automation tools do you use?</text>
+            <attachments/>
+            <options correct="patch-q102o1">
+                <option id="patch-q102o1">
+                    <text>Chef</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q102o2">
+                    <text>Puppet</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q102o3">
+                    <text>Salt</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q102o4">
+                    <text>Ansible</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q102o5">
+                    <text>Other</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text/>
+                <attachments/>
+            </instruction>
+        </question>
+        <question id="patch-q110" type="yesno" hidden="false">
+            <text>Do you subscribe to a CVE website RSS?</text>
+            <attachments/>
+            <options correct="patch-q110o1">
+                <option id="patch-q110o1">
+                    <text>yes</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q110o2">
+                    <text>no</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("patch-q110o1") : scoring : {
+                            addScore("knowhow", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text/>
+                <attachments/>
+            </instruction>
+        </question>
+        <question id="patch-q120" type="A" hidden="false">
+            <text>Do you have a rollback plan?</text>
+            <attachments/>
+            <options correct="patch-q120o1">
+                <option id="patch-q120o1">
+                    <text>yes, there is a strategy for every system</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q120o2">
+                    <text>yes, we a have general protocol but not for indicidual systems</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q120o3">
+                    <text>No, we don't have plan for patch rollback</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text/>
+                <attachments/>
+            </instruction>
+        </question>
+        <question id="patch-q130" type="yesno" hidden="true">
+            <text>Do you test patches before rollout?</text>
+            <attachments/>
+            <options correct="patch-q130o1">
+                <option id="patch-q130o1">
+                    <text>yes</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q130o2">
+                    <text>No</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("patch-q130o1") : scoring : {
+                            addScore("knowhow", 1);
+                            addScore("uu", 1);
+                            setHidden("patch-q132", FALSE);
+                        };
+                        TRUE : scoring : {
+                            setHidden("patch-q132", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text/>
+                <attachments/>
+            </instruction>
+        </question>
+        <question id="patch-q132" type="yesno" hidden="true">
+            <text>Do you have a dedicated test environment for patches?</text>
+            <attachments/>
+            <options correct="patch-q132o1">
+                <option id="patch-q132o1">
+                    <text>yes</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q132o2">
+                    <text>No</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("strengthMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("patch-q132o1") : scoring : {
+                            addScore("strength", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text/>
+                <attachments/>
+            </instruction>
+        </question>
+        <question id="patch-q140" type="yesno" hidden="false">
+            <text>Do you schedule regular patch days?</text>
+            <attachments/>
+            <options correct="patch-q140o1">
+                <option id="patch-q140o1">
+                    <text>yes</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q140o2">
+                    <text>No</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text/>
+                <attachments/>
+            </instruction>
+        </question>
+        <question id="patch-q150" type="yesno" hidden="false">
+            <text>Do you rollout patches in batches across network?</text>
+            <attachments/>
+            <options correct="patch-q150o1">
+                <option id="patch-q150o1">
+                    <text>yes</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q150o2">
+                    <text>No</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("patch-q150o1") : scoring : {
+                            addScore("knowhow", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text/>
+                <attachments/>
+            </instruction>
+        </question>
+        <question id="patch-q160" type="yesno" hidden="false">
+            <text>Do you schedule reboots after installing patches?</text>
+            <attachments/>
+            <options correct="patch-q160o1">
+                <option id="patch-q160o1">
+                    <text>yes</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q160o2">
+                    <text>No</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <instruction>
+                <text/>
+                <attachments/>
+            </instruction>
+        </question>
+        <question id="patch-q170" type="yesno" hidden="false">
+            <text>Do you make backups of relevant data before patching?</text>
+            <attachments/>
+            <options correct="patch-q170o1">
+                <option id="patch-q170o1">
+                    <text>yes</text>
+                    <attachments></attachments>
+                </option>
+                <option id="patch-q170o2">
+                    <text>No</text>
+                    <attachments></attachments>
+                </option>
+            </options>
+            <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("strengthMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("patch-q170o1") : scoring : {
+                            addScore("strength", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text/>
+                <attachments/>
+            </instruction>
+        </question>
+
+    </questions>
+    <blocks>
+        <listeners>
+            <listener event="onResponseChange" libraries="eu.smesec.library.DemoLibrary"
+                      call="eu.smesec.library.DemoLibrary.onRespnseChange"/>
+        </listeners>
+        <block title="Patch Management, Initial Level" qid-list="patch-q10 q20 q30 q40 q50 q60 q70 q80 q90 q100" position="1" id="b1">
+            <listeners/>
+            <instruction>
+                <text>Test</text>
+            </instruction>
+        </block>
+    </blocks>
+
+    <library id="eu.smesec.library.patch_management.PatchLib"></library>
+
+    <metadata key="_cysec.logic">
+        <mvalue key="preQuestion">
+            <stringValue>
+                TRUE : preQuestion : {
+                    addScore("uu", 0);
+                };
+            </stringValue>
+        </mvalue>
+        <mvalue key="postQuestion">
+            <stringValue>
+                //************************   BEGIN Badges   **************************************
+                // AdminKnowsBestBadge
+                isSelected("patch-q60o1") : AdminsKnowBestBadge : {
+                    awardBadge("AdminsKnowBest", "Bronze");
+                };
+                TRUE : AdminsKnowBestBadge : revokeBadge("AdminsKnowBest");
+
+                // ControlManiacBadge
+                isSelected("patch-q100o1") : ControlManiacBadge : {
+                    awardBadge("ControlManiac", "Bronze");
+                };
+                TRUE : ControlManiacBadge : revokeBadge("ControlManiac");
+
+                // BetterSafeThanSorryBadge
+                or(isSelected("patch-q120o1"), isSelected("patch-q170o1")) : BetterSafeThanSorryBadge : {
+                    awardBadge("BetterSafeThanSorry", "Bronze");
+                };
+                TRUE : BetterSafeThanSorryBadge : revokeBadge("BetterSafeThanSorry");
+
+                //************************   END Badges   **************************************
+
+
+                //************************   BEGIN Recommendations   **************************************
+                // permission accumulation
+                isSelected("patch-q100o2") : AutomationRecommendation : {
+                    addRecommendation("AutomationRecommendation", 1, "", "", "Enforcing configuration helps creating a heterogenous setup on systems", "", "", "app/coach.jsp#lib-patch-management,patch-q100");
+                };
+                isSelected("patch-q100o1") : AutomationRecommendation : revokeRecommendation("AutomationRecommendation");
+
+                // patch test lab
+                isSelected("patch-q132o2") : PatchTestLab : {
+                    addRecommendation("PatchTestLab", 1, "", "", "A test lab makes testing patch rollout much easier", "", "", "app/coach.jsp#lib-patch-management,patch-q132");
+                };
+                isSelected("patch-q132o1") : PatchTestLab : revokeRecommendation("PatchTestLab");
+
+                // RolloutSlices
+                isSelected("patch-q150o2") : RolloutSlices : {
+                    addRecommendation("RolloutSlices", 1, "", "", "Rollout on small slices makes revert easier on a patch gone bad", "", "", "app/coach.jsp#lib-patch-management,patch-q150");
+                };
+                isSelected("patch-q150o1") : RolloutSlices : revokeRecommendation("RolloutSlices");
+
+                // Reboots
+                isSelected("patch-q160o2") : Reboots : {
+                    addRecommendation("Reboots", 1, "", "", "Make sure to reboot systems after installing patches", "", "", "app/coach.jsp#lib-patch-management,patch-q160");
+                };
+                isSelected("patch-q160o1") : Reboots : revokeRecommendation("Reboots");
+                //************************   END Recommendations   **************************************
+            </stringValue>
+        </mvalue>
+        <mvalue key="onBegin">
+            <stringValue>
+                TRUE : onBegin : {
+                    // AdminKnowsBestBadge
+                    addBadge( "AdminsKnowBest", 1, "", "", "Not assigned yet", "" );
+                    addBadgeClass( "AdminsKnowBest", "Bronze", 1, "assets/images/badge_lightblue.svg", " ", "Admins know best", "lib-patch-management,patch-q60");
+
+                    // ControlManiac
+                    addBadge( "ControlManiac", 1, "", "", "Not assigned yet", "" );
+                    addBadgeClass( "ControlManiac", "Bronze", 1, "assets/images/badge_lightblue.svg", " ", "Controlling the configuration of machines", "lib-patch-management,patch-q100");
+
+                    // BetterSafeThanSorry
+                    addBadge( "BetterSafeThanSorry", 1, "assets/images/badge_lightblue.svg", "", "Not assigned yet", "" );
+                    addBadgeClass( "BetterSafeThanSorry", "Bronze", 1, "assets/images/badge_lightblue.svg", " ", "Better err on the safe side", "lib-patch-management,patch-q120");
+                };
+            </stringValue>
+        </mvalue>
+    </metadata>
+
+</questionnaire>

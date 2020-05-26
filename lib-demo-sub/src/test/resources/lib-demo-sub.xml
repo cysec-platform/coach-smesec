@@ -1,0 +1,333 @@
+<?xml version='1.0'?>
+<questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd"
+               id="lib-demo-sub" maxScore="1200" readableName="Demo" readableClass="FAST RAMP-UP" version="1" order="0" default="true">
+    <description>The company coach is your main entry point to proceed on the Fast-RampUp track. It gathers some information about your company, such as employee count and a couple of technical questions (e.g., which operating systems you use within your company). With this information, the coach can ask you the questions that are relevant for your profile and give the recommendations that benefit you the most.
+    </description>
+    <attachments>
+        <attachment id="icon">
+            <content filename="hexagon_default.png"></content>
+        </attachment>
+    </attachments>
+
+    <questions>
+        <question id="demo-q10" type="A"  hidden="false">
+            <text>What is 6 times 7?</text>
+            <readMore>This is an example of easy math multiplication.</readMore>
+            <attachments>
+                <attachment id="demo-q10a1" mime="image/jpeg">
+                    <content filename="image.jpg" xml:lang="de "></content>
+                </attachment>
+            </attachments>
+            <options correct="demo-q10o1">
+                <option id="demo-q10o1">
+                    <text>42</text>
+                    <comment>Well done</comment>
+                    <attachments/>
+                </option>
+                <option id="demo-q10o2" short="7">
+                    <text>777777</text>
+                    <comment>Are your sure?</comment>
+                    <attachments/>
+                </option>
+                <option id="demo-q10o3" short="6">
+                    <text>6666666</text>
+                    <comment>Try again</comment>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners>
+                <!--<listener event="onAnswered" libraries="bla" call="eu.smesec.evaluation.MyFunc"/>-->
+            </listeners>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            awardBadge("ServerSavior", "Bronze");
+                            awardBadge("serverSavior", "Bronze");
+                            addScore("knowhowMax", 1);
+                            addScore("uuMax", 3);
+                        };
+                        isSelected("demo-q10o3") : demo-q10o3 : {
+                            addScore("knowhow", 1);
+                            addRecommendation("TieUpLooseEnds", 1, "lib-demo-sub,demo-q10", "TestAlt", "Tie up loose ends", "Consider answering this question", "TextLink", "lib-demo-sub,demo-q10");
+                        };
+                        isSelected("demo-q10o1") : demo-q10o1 : {
+                            addScore("uu", 3);
+                            revokeRecommendation("TieUpLooseEnds");
+                            revokeBadge("serverSavior");
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                </text>
+            </instruction>
+        </question>
+        <question id="demo-q20" type="likert" hidden="false">
+            <text>
+                <![CDATA[
+                    Question 1 was an enjoyable reference to the Hitchhikers' Guide. <br />
+                    1 = Strong Disagree, 5 = Strong Agree
+                    ]]>
+            </text>
+            <attachments/>
+            <options correct="demo-q20o1">
+                <option id="demo-q20o1">
+                    <text>1</text>
+                    <comment>Bummer</comment>
+                    <attachments/>
+                </option>
+                <option id="demo-q20o2">
+                    <text>2</text>
+                    <attachments/>
+                </option>
+                <option id="demo-q20o3">
+                    <text>3</text>
+                    <attachments/>
+                </option>
+                <option id="demo-q20o4">
+                    <text>4</text>
+                    <comment>Ok I guess</comment>
+                    <attachments/>
+                </option>
+                <option id="demo-q20o5">
+                    <text>5</text>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners>
+                <!--<listener event="onAnswered" libraries="bla" call="eu.smesec.evaluation.MyFunc"/>-->
+            </listeners>
+            <instruction>
+                <text>
+                </text>
+            </instruction>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                            addScore("strengthMax", 3);
+                            addScore("uuMax", 1);
+                        };
+                        isSelected("demo-q10o3") : demo-q10o3 : {
+                            addScore("uu", 1);
+                        };
+                        isSelected("demo-q10o1") : demo-q10o1 : {
+                            addScore("uu", 1);
+                        };
+                        isSelected("demo-q10o2") : demo-q10o2 : {
+                            addScore("uu", 1);
+                        };
+                        isSelected("demo-q10o4") : demo-q10o4 : {
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+        </question>
+        <question id="demo-q30" type="date" hidden="false">
+            <text>
+                Select the 1. of Mai 2018
+            </text>
+            <attachments/>
+            <listeners>
+            </listeners>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : demo-q30Answered : {
+                            addScore("knowhowMax", 1);
+                            if(isAnswered("demo-q30"), setHidden("demo-q40", FALSE), setHidden("demo-q40", TRUE));
+                        };
+
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction >
+                <text>
+                </text>
+            </instruction>
+        </question>
+        <question id="demo-q40" type="Astar" hidden="true">
+            <text>Select all technologies that are programming languages</text>
+            <attachments/>
+            <options correct="demo-q40o1">
+                <option id="demo-q40o1">
+                    <text>HTML</text>
+                    <attachments/>
+                </option>
+                <option id="demo-q40o2" short="8">
+                    <text>Java</text>
+                    <comment>Nice</comment>
+                    <attachments/>
+                </option>
+                <option id="demo-q40o3" short="9">
+                    <text>C++</text>
+                    <comment>Pro</comment>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners />
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                            addScore("strengthMax", 1);
+                            addScore("uuMax", 1);
+                        };
+                        isAnswered("demo-q40") : demo-q40 : {
+                            addScore("knowhow", 1);
+                            addScore("strength", 1);
+                            addScore("uu", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction >
+                <text>
+                </text>
+            </instruction>
+        </question>
+        <question id="demo-q50" type="Astarexcl" hidden="false">
+            <text>Define your backup interval</text>
+            <attachments/>
+            <options correct="demo-q50o3">
+                <option id="demo-q50o1">
+                    <text>daily</text>
+                    <comment>Amazing!</comment>
+                    <attachments/>
+                </option>
+                <option id="demo-q50o2" short="8">
+                    <text>weekly</text>
+                    <comment>Well done</comment>
+                    <attachments/>
+                </option>
+                <option id="demo-q50oNone" short="9">
+                    <text>None of the above</text>
+                    <comment>Change that!</comment>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners />
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                            addScore("strengthMax", 3);
+                        };
+                        isAnswered("demo-q50") : demo-q50 : {
+                            addScore("knowhow", 1);
+                            addScore("strength", 2);
+                        };
+                        isSelected("demo-q50o1") : demo-q50o1 : {
+                            addScore("strength", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction >
+                <text>
+                </text>
+            </instruction>
+        </question>
+        <question id="demo-q60" type="text" hidden="false">
+            <text>Please enter all your server names on separate lines.</text>
+            <attachments/>
+            <listeners />
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                        };
+                        isAnswered("demo-q60") : demo-q60 : {
+                            addScore("knowhow", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction >
+                <text>
+                </text>
+            </instruction>
+        </question>
+        <question id="demo-q70" type="yesno" hidden="false">
+            <text>Did you fill-in this coach honestly?</text>
+            <attachments>
+            </attachments>
+            <options correct="demo-q70o1">
+                <option id="demo-q70o1">
+                    <text>yes</text>
+                    <comment>Awesome!</comment>
+                    <attachments/>
+                </option>
+                <option id="demo-q70o2" short="7">
+                    <text>no</text>
+                    <comment>Seriously?</comment>
+                    <attachments/>
+                </option>
+            </options>
+            <listeners>
+            </listeners>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        TRUE : default : {
+                            addScore("knowhowMax", 1);
+                        };
+                        isAnswered("demo-q70") : demo-q70 : {
+                            addScore("knowhow", 1);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
+            <instruction>
+                <text>
+                </text>
+            </instruction>
+        </question>
+    </questions>
+     <blocks>
+
+        <listeners>
+            <listener event="onResponseChange" libraries="eu.smesec.library.DemoLibrary"
+                      call="eu.smesec.library.DemoLibrary.onRespnseChange"/>
+        </listeners>
+        <block title="Company" qid-list="q10 q20 q30 q40 q50 q60 q70" position="1" id="b1">
+            <listeners/>
+            <instruction>
+                <text>Test</text>
+            </instruction>
+        </block>
+    </blocks>
+
+    <library id="eu.smesec.library.demo.DemoLib"></library>
+    <metadata key="_cysec.logic">
+        <mvalue key="preQuestion">
+            <stringValue>
+                TRUE : preQuestion : {
+                    addScore("uu", 0);
+                };
+            </stringValue>
+        </mvalue>
+        <mvalue key="postQuestion">
+            <stringValue>
+                TRUE : postQuestion : {
+                    addScore("uu", 0);
+                };
+            </stringValue>
+        </mvalue>
+        <mvalue key="onBegin">
+            <stringValue>
+                TRUE : onBegin : {
+                    addBadge( "ServerSavior", 1, "assets/images/serversavior.svg", "", "Not assigned yet", "lib-backup,demo-q20" );
+                    addBadgeClass( "ServerSavior", "Bronze", 1, "assets/images/serversaviorbronze.svg", "", "Superman of servers", "lib-backup,demo-q10");
+                };
+            </stringValue>
+        </mvalue>
+    </metadata>
+</questionnaire>

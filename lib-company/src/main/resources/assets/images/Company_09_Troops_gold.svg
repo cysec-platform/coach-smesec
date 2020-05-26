@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 59 72" style="enable-background:new 0 0 59 72;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#C8FA96;}
+	.st1{filter:url(#Adobe_OpacityMaskFilter);}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st3{mask:url(#mask-2_1_);fill:#B9F281;}
+	.st4{fill:none;stroke:#FFFFFF;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;}
+	.st5{fill:none;stroke:#505050;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<title>badge01</title>
+<desc>Created with Sketch.</desc>
+<g id="Rectangle-Copy-2">
+	<g id="Mask">
+		<path class="st0" d="M58.5,12.5v29.7c0,14-27.6,29.7-29.2,29.7C27.6,72,0,56.2,0,42.3V12.5c7.4,0,26.4-8.4,29.3-12.5
+			C32.1,4.1,50.8,12.5,58.5,12.5z"/>
+	</g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="29.3" y="0" width="29.9" height="72">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="29.3" y="0" width="29.9" height="72" id="mask-2_1_">
+		<g class="st1">
+			<path id="path-1_1_" class="st2" d="M58.5,12.5v29.7c0,14-27.6,29.7-29.2,29.7C27.6,72,0,56.2,0,42.3V12.5
+				c7.4,0,26.4-8.4,29.3-12.5C32.1,4.1,50.8,12.5,58.5,12.5z"/>
+		</g>
+	</mask>
+	<rect id="Rectangle" x="29.3" class="st3" width="29.9" height="72"/>
+</g>
+<path id="Page-1-Copy-16" class="st4" d="M58.5,12.5v29.7c0,14-27.6,29.7-29.2,29.7C27.6,72,0,56.2,0,42.3V12.5
+	c7.4,0,26.4-8.4,29.3-12.5C32.1,4.1,50.8,12.5,58.5,12.5z"/>
+<g>
+	<path class="st5" d="M35.1,50.1c2.2,0,4-2.1,4-4v-9c0-3.3-6.5-5-10-5s-10,1.7-10,5v9c0,1.9,1.8,4,4,4"/>
+	<path class="st5" d="M47.1,52.1c1.9,0,4-1.1,4-3v-9c0-3.3-5.9-5-9-5c-0.3,0-0.6,0-1,0"/>
+	<path class="st5" d="M29.1,29.1c2.3,0,4-1.5,4-3.6v-1.8c0-2.1-1.7-3.6-4-3.6s-4,1.5-4,3.6v1.8C25.1,27.7,26.8,29.1,29.1,29.1z"/>
+	<line class="st5" x1="47.1" y1="56.1" x2="47.1" y2="42.1"/>
+	<line class="st5" x1="35.1" y1="56.1" x2="35.1" y2="39.1"/>
+	<line class="st5" x1="23.1" y1="39.1" x2="23.1" y2="56.1"/>
+	<path class="st5" d="M43.1,32.1c2.3,0,4-1.5,4-3.6v-1.8c0-2.1-1.7-3.6-4-3.6c-2.3,0-4,1.5-4,3.6v1.8C39.1,30.7,40.8,32.1,43.1,32.1
+		z"/>
+	<path class="st5" d="M11.1,52.1c-1.9,0-4-1.1-4-3v-9c0-3.3,5.9-5,9-5c0.3,0,0.6,0,1,0"/>
+	<line class="st5" x1="11.1" y1="56.1" x2="11.1" y2="42.1"/>
+	<path class="st5" d="M15.1,32.1c-2.3,0-4-1.5-4-3.6v-1.8c0-2.1,1.7-3.6,4-3.6c2.3,0,4,1.5,4,3.6v1.8C19.1,30.7,17.4,32.1,15.1,32.1
+		z"/>
+	<path class="st5" d="M20.1,20.1c-2.3,0-4-1.5-4-3.6v-1.8c0-2.1,1.7-3.6,4-3.6c2.3,0,4,1.5,4,3.6v1.8C24.1,18.7,22.4,20.1,20.1,20.1
+		z"/>
+	<path class="st5" d="M38.1,20.1c-2.3,0-4-1.5-4-3.6v-1.8c0-2.1,1.7-3.6,4-3.6c2.3,0,4,1.5,4,3.6v1.8C42.1,18.7,40.4,20.1,38.1,20.1
+		z"/>
+</g>
+</svg>

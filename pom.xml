@@ -20,7 +20,7 @@
     <!-- sub modules -->
     <modules>
         <module>cysec-flatifier</module>
-        <module>questionnaire-platform/cysec_bridge</module>
+        <module>cysec-platform/cysec_bridge</module>
         <module>lib_framework</module>
         <module>lib-user-training</module>
         <module>lib-subcoach-backup</module>

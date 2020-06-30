@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd"
-               id="lib-company" maxScore="1200" readableName="Company" readableClass="FAST RAMP-UP" version="2" order="0">
+               id="lib-company" maxScore="1200" readableName="Company" readableClass="FAST RAMP-UP" version="3" order="0">
     <description>The company coach is your main entry point to proceed on the Fast-RampUp track. It gathers some information about your company, such as employee count and a couple of technical questions (e.g., which operating systems you use within your company). With this information, the coach can ask you the questions that are relevant for your profile and give the recommendations that benefit you the most.
     </description>
     <attachments>
@@ -42,6 +42,7 @@
                     <stringValue>
                         TRUE : default : {
                             createSubcoach("lib-subcoach-backup", "A");
+                            createSubcoach("lib-malware-scan", "lib-malware-scan");
                         };
                     </stringValue>
                 </mvalue>
@@ -357,6 +358,7 @@
                             addScore("knowhow",-1);
                             addScore("strength",-1);
                         };
+
                     </stringValue>
                 </mvalue>
             </metadata>
@@ -455,12 +457,12 @@
                 </option>
                 <option id="company-q100o2">
                     <text>MAC OS AND/OR IOS</text>
-                    <comment>SMESEC has specialised tools helping you to protect your employees’ machines.</comment>
+                    <comment></comment>
                     <attachments></attachments>
                 </option>
                 <option id="company-q100o3">
                     <text>ANDROID</text>
-                    <comment>SMESEC has specialised tools helping you to protect your employees’ machines.</comment>
+                    <comment></comment>
                     <attachments></attachments>
                 </option>
                 <option id="company-q100o4">
@@ -508,6 +510,30 @@
                 </option>
             </options>
             <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                 <stringValue>
+                     isSelected("company-q110o1") : q110company : {
+                     setHidden("company-q120", FALSE);
+                     setHidden("company-q140", FALSE);
+                     setHidden("company-q170", FALSE);
+                     };
+                     isSelected("company-q110o2") : q110company : {
+                     setHidden("company-q130", FALSE);
+                     setHidden("company-q140", FALSE);
+                     setHidden("company-q170", FALSE);
+                     };
+
+                     TRUE : q110company : {
+                     setHidden("company-q120", TRUE);
+                     setHidden("company-q130", TRUE);
+                     setHidden("company-q140", TRUE);
+                     setHidden("company-q170", TRUE);
+                     };
+
+                 </stringValue>
+                </mvalue>
+            </metadata>
             <instruction>
                 <text>
                     &lt;p&gt;State which operating systems are used on your server machines.&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Operating systems work in diverse ways and, as a consequence, require different ways of protection. CYSEC will adapt the questions to the operating systems that are in use in your company.&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe allowtransparency=&quot;true&quot; title=&quot;Wistia video player&quot; allowFullscreen frameborder=&quot;0&quot; scrolling=&quot;no&quot; class=&quot;wistia_embed&quot; name=&quot;wistia_embed&quot; src=&quot;https://fast.wistia.net/embed/iframe/8a9cr5ge27&quot; width=&quot;560&quot; height=&quot;315&quot;&gt;&lt;/iframe&gt;
@@ -550,6 +576,20 @@
                 </option>
             </options>
             <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("company-q140o1") : q140company : {
+                        setHidden("company-q150", FALSE);
+                        setHidden("company-q160", FALSE);
+                        };
+                        TRUE : q140company : {
+                        setHidden("company-q150", TRUE);
+                        setHidden("company-q160", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
             <instruction>
                 <text>
                     &lt;p&gt;State whether at least one of your servers can be contacted from the Internet.&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Internet-facing servers are a higher risk for the company than servers that are only accessible from within the company&amp;rsquo;s network. For example, the Internet-facing servers are exposed to automated attacks that hackers can run with little cost and effort. These server require greater care for protection than the internal ones.&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/dbmD083KY-c&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
@@ -646,7 +686,7 @@
                 </option>
                 <option id="company-q170o4">
                     <text>EMAIL SERVER</text>
-                    <comment>SMESEC has specialised tools helping you to protect your servers.</comment>
+                    <comment></comment>
                     <attachments></attachments>
                 </option>
                 <option id="company-q170o5">
@@ -656,6 +696,30 @@
                 </option>
             </options>
             <listeners/>
+            <metadata key="_cysec.logic">
+                <mvalue key="default">
+                    <stringValue>
+                        isSelected("company-q170o1") : q170company : {
+                        setHidden("company-q180", FALSE);
+                        };
+                        isSelected("company-q170o2") : q170company : {
+                        setHidden("company-q190", FALSE);
+                        };
+                        isSelected("company-q170o3") : q170company : {
+                        setHidden("company-q200", FALSE);
+                        };
+                        isSelected("company-q170o4") : q170company : {
+                        setHidden("company-q210", FALSE);
+                        };
+                        TRUE : q170company : {
+                        setHidden("company-q180", TRUE);
+                        setHidden("company-q190", TRUE);
+                        setHidden("company-q200", TRUE);
+                        setHidden("company-q210", TRUE);
+                        };
+                    </stringValue>
+                </mvalue>
+            </metadata>
             <instruction>
                 <text>
                     &lt;p&gt;State the functions that your servers provide. The servers do not necessarily need be Internet-facing.&lt;/p&gt; &lt;p&gt;Servers are targets for attacks:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;File servers may be a store of malware&lt;/li&gt; &lt;li&gt;Active directory contains valuable, even personal data&lt;/li&gt; &lt;li&gt;DNS servers manage directories of server addresses&lt;/li&gt; &lt;li&gt;E-mails are a target for phishing, distributing malware, and opportunities for spam.&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;CYSEC will adapt its recommendations based on the type of servers you have.&lt;/p&gt;
@@ -872,6 +936,55 @@
                 //isAnswered("company-q") : UserTrainingRec : {
                 //    addRecommendation("UserTraining", 1, "", "", "Continue with", "", "", "app/coach.jsp#lib-subcoach-backup,q20");
                 //};
+
+                //Adding tool recommendations
+
+                //Rec1, tool(securityaware.me)
+                // SFR: replace isAnswered("company-q10") by "isLargerThan("company-q10o1", 0)
+                isAnswered("company-q10") : cysectoolrecommendation : {
+                addRecommendation("cysectoolrecommendation", 18, "lib-company,company-q10", "", "Staff Training", "Train your staff regularly with securityaware.me (if you do not provide cybersecurity training already)", "", "");
+                };
+                not(isAnswered("company-q10")) : cysectoolrecommendation : revokeRecommendation("cysectoolrecommendation");
+
+                //Rec2, tool(XL-SIEM)
+                //SFR: I assumed the presence of a function or(a, b) corresponding to the boolean expression a OR b.
+                //SFR: I am unsure what the part "qXX" in the third parameter in addRecommendations does. I here referred to the question of the first condition.
+                or(or(isSelected("company-q40o1"), isSelected("company-q85o1")), isSelected("company-q85o2")) : cysectoolrecommendation2 : {
+                addRecommendation("cysectoolrecommendation2", 21, "lib-company,company-q40", "TestAlt", "XL-SIEM", "This tool will help you monitor your system for detecting intrusions and providing reactions", "TextLink", "");
+                };
+                not(or(or(isSelected("company-q40o1"), isSelected("company-q85o1")), isSelected("company-q85o2"))) : cysectoolrecommendation2 : revokeRecommendation("cysectoolrecommendation2");
+
+                //Rec3, tool(GravityZone)
+                //SFR: I assumed the presence of a function or(a, b) corresponding to the boolean expression a OR b.
+                //SFR: I am unsure what the part "qXX" in the third parameter in addRecommendations does. I here referred to the question of the first condition.
+                or(or(or(isSelected("company-q20o1"), isSelected("company-q100o1")), isSelected("company-q100o2")), isSelected("company-q100o4")) : cysectoolrecommendation3 : {
+                addRecommendation("cysectoolrecommendation3", 20, "lib-company,q20", "TestAlt", "GravityZone", "Antimalware solution with a security management platform for physical, virtualized and mobile endpoints", "TextLink", "");
+                }; not(or(or(or(isSelected("company-q20o1"), isSelected("company-q100o1")), isSelected("company-q100o2")), isSelected("company-q100o4"))) : cysectoolrecommendation3 : revokeRecommendation("cysectoolrecommendation3");
+
+                //Rec5, tool(Citrix)
+                or(or(or(isSelected("company-q20o1"), isSelected("company-q100o1")), isSelected("company-q100o2")), isSelected("company-q100o4")) : cysectoolrecommendation5 : {
+                addRecommendation("cysectoolrecommendation5", 22, "lib-company,q20", "TestAlt", "ADC", "Application delivery and load balancing solution for services-based applications", "TextLink", "");
+                }; not(or(or(or(isSelected("company-q20o1"), isSelected("company-q100o1")), isSelected("company-q100o2")), isSelected("company-q100o4"))) : cysectoolrecommendation5 : revokeRecommendation("cysectoolrecommendation5");
+
+                //Rec6 tool(anti-rop)
+                isSelected("company-q90o1") : cysectoolrecommendation6 : {
+                addRecommendation("cysectoolrecommendation6", 34, "lib-company,q90", "TestAlt", "Anti-ROP", "Protect your system for hackers trying to gain control", "TextLink", "");
+                }; not(isSelected("company-q90o1")) : cysectoolrecommendation6 : revokeRecommendation("cysectoolrecommendation6");
+
+                //Rec7 tool(TaaS)
+                isSelected("company-q90o2") : cysectoolrecommendation7 : {
+                addRecommendation("cysectoolrecommendation7", 33, "lib-company,q90", "TestAlt", "TaaS", "Global testing services for coding", "TextLink", "");
+                }; not(isSelected("company-q90o2")) : cysectoolrecommendation7 : revokeRecommendation("cysectoolrecommendation7");
+
+                //Rec4, EWIS
+                isSelected("company-q140o1") : cysectoolrecommendation4 : {
+                addRecommendation("cysectoolrecommendation4", 28, "lib-company,q140", "TestAlt", "EWIS", "Use it for detecting attacks in your system and gain information of cybercriminals", "TextLink", "");
+                }; not(isSelected("company-q140o1")) : cysectoolrecommendation4 : revokeRecommendation("cysectoolrecommendation4");
+
+                //Rec8 IBM AngelEye,
+                isSelected("company-q180o1") : cysectoolrecommendation8 : {
+                addRecommendation("cysectoolrecommendation8", 23, "lib-company,q180", "TestAlt", "Angel Eye", "Applies machine learning on the tests created by a hybrid test generation platform (genetic, generation and symbolic) to create a virtual patch of the system under test", "TextLink", "");
+                }; not(isSelected("company-q180o1")) : cysectoolrecommendation8 : revokeRecommendation("cysectoolrecommendation8");
 
             </stringValue>
         </mvalue>

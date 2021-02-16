@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>eu.smesec.library</groupId>
-    <artifactId>lib-demo-sub</artifactId>
+    <artifactId>coach-company</artifactId>
     <packaging>jar</packaging>
     <version>1.0</version>
 
@@ -17,7 +17,7 @@
     </parent>
 
     <build>
-        <finalName>DemoLib</finalName>
+        <finalName>CompanyLib</finalName>
         <plugins>
             <plugin>
                 <!--Avoid default JAR file -->
@@ -69,7 +69,7 @@
                             <arguments>
                                 <argument>-jar</argument>
                                 <argument>${project.parent.basedir}/cysec-flatifier/target/flatifier.jar</argument>
-                                <argument>${project.basedir}/src/flatify</argument>
+                                <argument>${project.basedir}/src/flatify/</argument>
                                 <argument>${project.build.directory}/${project.artifactId}.xml</argument>
                             </arguments>
                         </configuration>

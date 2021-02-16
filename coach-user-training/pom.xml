@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-		 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>eu.smesec.library</groupId>
-    <artifactId>lib-company</artifactId>
-    <packaging>jar</packaging>
-    <version>1.0</version>
-
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>eu.smesec</groupId>
         <artifactId>cysec_cruiser</artifactId>
         <version>1.0</version>
     </parent>
 
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>coach-user-training</artifactId>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+    <dependencies>
+        <!--Lib framework-->
+        <dependency>
+            <groupId>eu.smesec.library</groupId>
+            <artifactId>lib_framework</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
     <build>
-        <finalName>CompanyLib</finalName>
+        <finalName>UtrainingLib</finalName>
         <plugins>
             <plugin>
                 <!--Avoid default JAR file -->
@@ -76,15 +86,9 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 
-    <dependencies>
-        <!--Lib framework-->
-        <dependency>
-            <groupId>eu.smesec.library</groupId>
-            <artifactId>lib_framework</artifactId>
-            <version>1.0</version>
-        </dependency>
-    </dependencies>
+
 </project>

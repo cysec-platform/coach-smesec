@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-		 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>eu.smesec.library</groupId>
-    <artifactId>lib-subcoach-backup</artifactId>
-    <packaging>jar</packaging>
-    <version>1.0</version>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
         <groupId>eu.smesec</groupId>
@@ -16,14 +9,33 @@
         <version>1.0</version>
     </parent>
 
-    <build>
-        <finalName>FirstLibrary</finalName>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>coach-access-control</artifactId>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.verbose>true</maven.compiler.verbose>
+    </properties>
+
+    <dependencies>
+        <!--Lib framework-->
+        <dependency>
+            <groupId>eu.smesec.library</groupId>
+            <artifactId>lib_framework</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>AccessLib</finalName>
         <plugins>
             <plugin>
                 <!--Avoid default JAR file -->
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>3.1.1</version>
                 <executions>
                     <execution>
                         <id>default-jar</id>
@@ -54,14 +66,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-jar-plugin</artifactId>-->
-                <!--<version>3.1.2</version>-->
-                <!--<configuration>-->
-                    <!--<outputDirectory>src/flatify</outputDirectory>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -78,23 +82,16 @@
                             <arguments>
                                 <argument>-jar</argument>
                                 <argument>${project.parent.basedir}/cysec-flatifier/target/flatifier.jar</argument>
-                                <argument>${project.basedir}/src/flatify</argument>
+                                <argument>${project.basedir}/src/flatify/</argument>
                                 <argument>${project.build.directory}/${project.artifactId}.xml</argument>
                             </arguments>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 
-    <dependencies>
-        <!--Lib framework-->
-        <dependency>
-            <groupId>eu.smesec.library</groupId>
-            <artifactId>lib_framework</artifactId>
-            <version>1.0</version>
-        </dependency>
-    </dependencies>
 
 </project>

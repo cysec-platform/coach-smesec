@@ -19,16 +19,15 @@
 
     <!-- sub modules -->
     <modules>
-        <module>cysec-flatifier</module>
         <module>cysec-platform/cysec_bridge</module>
         <module>lib_framework</module>
-        <module>lib-user-training</module>
-        <module>lib-subcoach-backup</module>
-        <module>lib-access-control</module>
-        <module>lib-patch-management</module>
-        <module>lib-malware-scan</module>
-        <module>lib-company</module>
-        <module>lib-demo-sub</module>
+        <module>coach-company</module>
+        <module>coach-user-training</module>
+        <module>coach-access-control</module>
+        <module>coach-patch-management</module>
+        <module>coach-malware-scan</module>
+        <module>subcoach-backup</module>
+        <module>coach-demo-sub</module>
     </modules>
 
     <build>
@@ -52,7 +51,7 @@
             <dependency>
                 <groupId>eu.smesec.platform</groupId>
                 <artifactId>cysec_bridge</artifactId>
-                <version>0.1</version>
+                <version>0.2</version>
                 <scope>compile</scope>
             </dependency>
             <dependency>
@@ -66,12 +65,6 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-core</artifactId>

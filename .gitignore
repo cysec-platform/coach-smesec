@@ -3,6 +3,3 @@
 target/
 classes/
 *.jar
-
-cysec-flatifier/
-cysec-platform/

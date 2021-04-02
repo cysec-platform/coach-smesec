@@ -64,27 +64,19 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
+                <groupId>eu.smesec.platform</groupId>
+                <artifactId>flatifier-maven-plugin</artifactId>
+                <version>0.3.0</version>
                 <executions>
                     <execution>
-                        <id>exec command</id>
                         <goals>
-                            <goal>exec</goal>
+                            <goal>flatify</goal>
                         </goals>
-                        <phase>install</phase>
-                        <configuration>
-                            <executable>java</executable>
-                            <arguments>
-                                <argument>-jar</argument>
-                                <argument>${project.parent.basedir}/cysec-flatifier/target/flatifier.jar</argument>
-                                <argument>${project.basedir}/src/flatify/</argument>
-                                <argument>${project.build.directory}/${project.artifactId}.xml</argument>
-                            </arguments>
-                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <inputDirectory>${project.basedir}/src/flatify/</inputDirectory>
+                </configuration>
             </plugin>
 
         </plugins>

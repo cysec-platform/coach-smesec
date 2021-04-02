@@ -19,7 +19,6 @@
 
     <!-- sub modules -->
     <modules>
-        <module>cysec-platform/cysec_bridge</module>
         <module>lib_framework</module>
         <module>coach-company</module>
         <module>coach-user-training</module>
@@ -44,7 +43,6 @@
         </plugins>
     </build>
 
-
     <dependencyManagement>
         <dependencies>
             <!-- Cysec dependencies -->
@@ -62,7 +60,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 
     <dependencies>
         <dependency>

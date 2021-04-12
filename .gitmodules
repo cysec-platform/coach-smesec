@@ -1,8 +1,0 @@
-[submodule "cysec-platform"]
-	path = cysec-platform
-	url = git@github.com:cysec-platform/cysec-platform.git
-	branch = development
-[submodule "cysec-flatifier"]
-	path = cysec-flatifier
-	url = git@gitlab.fhnw.ch:SMESEC/cysec-flatifier.git
-    branch = master

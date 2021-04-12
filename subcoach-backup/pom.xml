@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-		 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>eu.smesec.library</groupId>
     <artifactId>subcoach-backup</artifactId>
     <packaging>jar</packaging>
-    <version>1.0</version>
+    <version>1.0.0</version>
 
     <parent>
         <groupId>eu.smesec</groupId>
         <artifactId>cysec_cruiser</artifactId>
-        <version>1.0</version>
+        <version>1.0.0</version>
     </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>eu.smesec.library</groupId>
+            <artifactId>lib_coach_standard_language</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>FirstLibrary</finalName>
@@ -22,6 +29,7 @@
         <plugins>
             <plugin>
                 <!--Avoid default JAR file -->
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.1.2</version>
                 <executions>
@@ -46,7 +54,6 @@
                 <executions>
                     <execution>
                         <id>make-assembly</id>
-                        <!-- bind to the packaging phase -->
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
@@ -54,14 +61,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-jar-plugin</artifactId>-->
-                <!--<version>3.1.2</version>-->
-                <!--<configuration>-->
-                    <!--<outputDirectory>src/flatify</outputDirectory>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>eu.smesec.platform</groupId>
                 <artifactId>flatifier-maven-plugin</artifactId>
@@ -79,14 +78,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-        <!--Lib framework-->
-        <dependency>
-            <groupId>eu.smesec.library</groupId>
-            <artifactId>lib_framework</artifactId>
-            <version>1.0</version>
-        </dependency>
-    </dependencies>
 
 </project>

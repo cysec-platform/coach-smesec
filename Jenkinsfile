@@ -3,50 +3,29 @@ pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr:'50'))
     disableConcurrentBuilds()
+    timeout(time: 30, unit: 'MINUTES')
   }
   stages {
     stage ('Initialize') {
       steps {
-		checkout scm: [
-				$class: 'GitSCM',
-				branches: scm.branches,
-				doGenerateSubmoduleConfigurations: false,
-				extensions: [[$class: 'SubmoduleOption',
-							  disableSubmodules: false,
-							  parentCredentials: false,
-							  recursiveSubmodules: true,
-							  reference: '',
-							  trackingSubmodules: false]],
-				submoduleCfg: [],
-				userRemoteConfigs: scm.userRemoteConfigs
-		]      
-		sh 'mvn clean'
+        script {
+          checkout scm
+        }
       }
     }
-    stage ('Build') {
+    stage ('Compile') {
       steps {
-        sh 'mvn -DskipTests compile'
+        sh 'mvn clean compile'
       }
     }
-    /*stage ('Test on JDK8') {
-      agent {
-        docker { 
-         image 'maven:3.6.0-jdk-8-slim'
-         reuseNode true
-         }
-      }
-      options {
-        timeout(time: 30, unit: 'MINUTES')
-      }
-      steps{
-        sh 'mvn -DforkCount=0 test jacoco:report'
-      }
-      
-    }*/
-    
-    stage ('Package all') {
+    stage ('Test') {
       steps {
-        sh 'mvn -DskipTests install'
+        sh 'mvn test'
+      }
+    }
+    stage ('Package') {
+      steps {
+        sh 'mvn package -DskipTests'
       }
     }
     /*stage('SonarQube analysis') {
@@ -65,10 +44,10 @@ pipeline {
     }*/
     success {
       archiveArtifacts artifacts: '*/target/*.jar,*/target/*.xml', fingerprint: true
-      updateGitlabCommitStatus(name: 'build', state: 'success')
+      //updateGitlabCommitStatus(name: 'build', state: 'success')
     }
-    failure {
+    /*failure {
       updateGitlabCommitStatus(name: 'build', state: 'failed')
-    }
+    }*/
   }
 }

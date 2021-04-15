@@ -26,6 +26,7 @@ pipeline {
     stage ('Package') {
       steps {
         sh 'mvn package -DskipTests'
+        junit testResults: '**/target/surefire-reports/*.xml', skipPublishingChecks: true
       }
     }
     /*stage('SonarQube analysis') {

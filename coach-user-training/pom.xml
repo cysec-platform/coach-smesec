@@ -73,6 +73,7 @@
                 </executions>
                 <configuration>
                     <inputDirectory>${project.basedir}/src/flatify/</inputDirectory>
+                    <outputFile>${project.build.directory}/lib-user-training.xml</outputFile>
                 </configuration>
             </plugin>
         </plugins>

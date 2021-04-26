@@ -73,6 +73,7 @@
                 </executions>
                 <configuration>
                     <inputDirectory>${project.basedir}/src/flatify/</inputDirectory>
+                    <outputFile>${project.build.directory}/lib-access-control.xml</outputFile>
                 </configuration>
             </plugin>
         </plugins>

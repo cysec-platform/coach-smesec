@@ -1,5 +1,5 @@
 <?xml version='1.0'?>
-<questionnaire id="lib-subcoach-backup" version="4" readableName="Backup coach" readableClass="FAST RAMP-UP" order="50" parent="lib-company" xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<questionnaire id="lib-subcoach-backup" version="4" readableName="Backup coach" order="50" parent="lib-company" xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd">
     <!--
     * |-q10 File service

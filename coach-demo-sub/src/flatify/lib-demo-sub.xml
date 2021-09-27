@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd"
-               id="lib-demo-sub" readableName="Demo" readableClass="FAST RAMP-UP" version="1" order="0" parent="lib-company">
+               id="lib-demo-sub" readableName="Demo" version="1" order="0" parent="lib-company">
     <description>The company coach is your main entry point to proceed on the Fast-RampUp track. It gathers some information about your company, such as employee count and a couple of technical questions (e.g., which operating systems you use within your company). With this information, the coach can ask you the questions that are relevant for your profile and give the recommendations that benefit you the most.
     </description>
     <attachments>

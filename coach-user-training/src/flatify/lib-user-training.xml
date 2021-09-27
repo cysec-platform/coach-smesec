@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd"
-               id="lib-user-training" readableName="User Training"  readableClass="FAST RAMP-UP" version="1" order="20" parent="lib-company">
+               id="lib-user-training" readableName="User Training" version="1" order="20" parent="lib-company">
     <description>A chain is only as strong as its weakest link. Today's cyber attacks are tremendously sophisticated, and phishing attempts look deceptively real. The best shot for companies to protect themselves against these insidious ways is to train employees continuously. Such training keeps employees vigilant and the company safe.</description>
     <attachments>
         <attachment id="icon">

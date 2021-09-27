@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd"
-               id="lib-patch-management" parent="lib-company" readableName="Patch Management" readableClass="FAST RAMP-UP" version="1" order="30">
+               id="lib-patch-management" parent="lib-company" readableName="Patch Management" version="1" order="30">
     <description>Even though every software has its flaws and weaknesses, it doesn't mean there's nothing one can do about it. The old saying to never change a running system doesn't apply to updates and patches. It is essential to updates servers as well as desktops regularly to harden software against zero-day exploits. Also, many small subsequent changes are more straightforward to integrate than a few huge migrations.</description>
     <attachments>
         <attachment id="icon">

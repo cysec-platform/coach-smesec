@@ -1,4 +1,19 @@
 <?xml version='1.0'?>
+<!--
+  Copyright (C) 2020 - 2021 FHNW (University of Applied Sciences and Arts Northwestern Switzerland)
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd"
                id="lib-demo-sub" readableName="Demo" version="1" order="0" parent="lib-company">
     <description>The company coach is your main entry point to proceed on the Fast-RampUp track. It gathers some information about your company, such as employee count and a couple of technical questions (e.g., which operating systems you use within your company). With this information, the coach can ask you the questions that are relevant for your profile and give the recommendations that benefit you the most.
@@ -64,7 +79,7 @@
             <instruction>
                 <text>
                     &lt;p&gt;myPicture&lt;/p&gt;
-                    &lt;img src="[smesec_instance]/api/rest/resources/lib-demo-sub/eu.smesec.library.demo.DemoLib/assets/images/sign-check-icon.png" height="200"&gt;
+                    &lt;img src="[smesec_instance]/api/rest/resources/lib-demo-sub/eu.smesec.cysec.coach.demo.DemoLib/assets/images/sign-check-icon.png" height="200"&gt;
                 </text>
             </instruction>
         </question>
@@ -298,8 +313,8 @@
      <blocks>
 
         <listeners>
-            <listener event="onResponseChange" libraries="eu.smesec.library.DemoLibrary"
-                      call="eu.smesec.library.DemoLibrary.onRespnseChange"/>
+            <listener event="onResponseChange" libraries="eu.smesec.cysec.coach.DemoLibrary"
+                      call="eu.smesec.cysec.coach.DemoLibrary.onRespnseChange"/>
         </listeners>
         <block title="Company" qid-list="demo-q10" position="1" id="b1">
             <listeners/>
@@ -309,7 +324,7 @@
         </block>
     </blocks>
 
-    <library id="eu.smesec.library.demo.DemoLib"></library>
+    <library id="eu.smesec.cysec.coach.demo.DemoLib"></library>
     <metadata key="_cysec.logic">
         <mvalue key="preQuestion">
             <stringValue>

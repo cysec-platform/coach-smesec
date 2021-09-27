@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Copyright (C) 2020 - 2021 FHNW (University of Applied Sciences and Arts Northwestern Switzerland)
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd"
                id="lib-patch-management" maxScore="1200" readableName="Patch Management" readableClass="FAST RAMP-UP" version="1" order="30">
     <description>Even though every software has its flaws and weaknesses, it doesn't mean there's nothing one can do about it. The old saying to never change a running system doesn't apply to updates and patches. It is essential to updates servers as well as desktops regularly to harden software against zero-day exploits. Also, many small subsequent changes are more straightforward to integrate than a few huge migrations.</description>
@@ -436,8 +451,8 @@
     </questions>
     <blocks>
         <listeners>
-            <listener event="onResponseChange" libraries="eu.smesec.library.DemoLibrary"
-                      call="eu.smesec.library.DemoLibrary.onRespnseChange"/>
+            <listener event="onResponseChange" libraries="eu.smesec.cysec.coach.DemoLibrary"
+                      call="eu.smesec.cysec.coach.DemoLibrary.onRespnseChange"/>
         </listeners>
         <block title="Patch Management, Initial Level" qid-list="q10 q20 q30 q40 q50 q60 q70 q80 q90 q100" position="1" id="b1">
             <listeners/>
@@ -447,5 +462,5 @@
         </block>
     </blocks>
 
-    <library id="eu.smesec.library.patch_management.PatchLib"></library>
+    <library id="eu.smesec.cysec.coach.patch_management.PatchLib"></library>
 </questionnaire>

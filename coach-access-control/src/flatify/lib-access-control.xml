@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="lib-access-control" order="50" parent="lib-company" readableName="Access Control" version="1" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Copyright (C) 2020 - 2021 FHNW (University of Applied Sciences and Arts Northwestern Switzerland)
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<questionnaire xmlns="https://smesec.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="lib-access-control" order="50" parent="lib-company" readableName="Access Control" version="1" xsi:schemaLocation="https://smesec.eu ../questionnaire.xsd">
     <description>Security is a wide-spread topic that covers many aspects of a companies infrastructure. It involves onboarding and offboarding of access rights, password management, and access monitoring. This coach introduces you to best-practices on login management and profit from rich material to learn more about industry standards.</description>
     <attachments>
         <attachment id="icon">
@@ -728,8 +744,8 @@
     </questions>
     <blocks>
         <listeners>
-            <listener event="onResponseChange" libraries="eu.smesec.library.DemoLibrary"
-                      call="eu.smesec.library.DemoLibrary.onRespnseChange"/>
+            <listener event="onResponseChange" libraries="eu.smesec.cysec.coach.DemoLibrary"
+                      call="eu.smesec.cysec.coach.DemoLibrary.onRespnseChange"/>
         </listeners>
         <block title="Access Control and Audit, Initial Level" qid-list="access-q10 q20 q30 q40 q50 q60 q70 q80 q90 q100 q110" position="1" id="b1">
             <listeners/>
@@ -739,7 +755,7 @@
         </block>
     </blocks>
 
-    <library id="eu.smesec.library.access_control.AccessLib"></library>
+    <library id="eu.smesec.cysec.coach.access_control.AccessLib"></library>
     <metadata key="_cysec.logic">
         <mvalue key="preQuestion">
             <stringValue>

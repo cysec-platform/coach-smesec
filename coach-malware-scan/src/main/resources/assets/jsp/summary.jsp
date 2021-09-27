@@ -118,7 +118,7 @@
             </div>
             <div class="col-xs-5" style="padding-right: 0;">
                 <img class="img-responsive" style="max-height: calc(100vh - 84px); float: right;" alt="Responsive image"
-                     src="${pageContext.request.contextPath}/api/rest/resources/lib-company/eu.smesec.library.company.CompanyLib/assets/images/lib-company-sidebar.jpg">
+                     src="${pageContext.request.contextPath}/api/rest/resources/lib-company/eu.smesec.cysec.coach.company.CompanyLib/assets/images/lib-company-sidebar.jpg">
             </div>
         </div>
     </jsp:body>

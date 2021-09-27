@@ -14,3 +14,7 @@ the file name must be `UserTraining.jar`.
 To deploy the coach on the platform, put the _flatified coach_ (from the destination file)
 into the `src/main/resources/coaches/` folder and push the change to the repository.
 The build process will automatically deploy on the stage environment (wwwtest.smesec.eu/stage).
+
+
+## License
+This project is licensed under the Apache 2.0 license, see [LICENSE](LICENSE).

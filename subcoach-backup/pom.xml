@@ -81,6 +81,7 @@
                 <version>0.1.0-SNAPSHOT</version>
                 <executions>
                     <execution>
+                        <phase>package</phase>
                         <goals>
                             <goal>flatify</goal>
                         </goals>
